@@ -6,6 +6,55 @@ body {
 .top-container {
   width: 100%;
   height: 55vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.chord-selector {
+  position: absolute;
+  width: 150px;
+  font-size: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: bold;
+}
+.chord-select-label {
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  display: flex;
+  background-color: #6A6E8A;
+  justify-content: center;
+  font-weight: bold;
+}
+select.chord-select-dropdown {
+  width: 170px !important; 
+  /**Fuck Best Practices**/
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ABABAB;
+}
+.chord-select-option {
+  display: flex;
+  width: 100%;
+}
+.chord-select-option span {
+  width: auto;
+  height: 1rem;
+  font-size: 1rem;
+  min-width: 20.20%;
+}
+
+.caret-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .instruments {
   display: flex;

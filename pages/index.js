@@ -3,10 +3,14 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import InstrumentContainer from '../components/InstrumentContainer'
+import { useState } from 'react'
+import MeasuresContainer from '../components/MeasuresContainer'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const [activeInstruments, setActiveInstruments] = useState({})
   return (
     <>
       <Head>
@@ -17,9 +21,7 @@ export default function Home() {
       </Head>
       <main>
         <div className="main_app_container">
-          <div className="top-container">
-
-          </div>
+          <MeasuresContainer/>
           <div className="instruments">
             <div className="instrument-types-label">
               Instrument Types
