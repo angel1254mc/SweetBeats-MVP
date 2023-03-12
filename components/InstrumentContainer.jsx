@@ -1,8 +1,8 @@
-import React from 'react'
-import useInstruments from '../hooks/useInstruments';
+import React, { useContext } from 'react'
+import useInstruments, { InstrumentsContext } from '../hooks/InstrumentContext';
 
 const InstrumentContainer = ({name, color, instrument_ident}) => {
-    const [instruments, setInstruments] = useInstruments();
+    const {instruments, setInstruments} = useContext(InstrumentsContext);
     const upperString = name.charAt(0).toUpperCase() + name.slice(1);
     return (
     <div className={`${name} instrument-container`}>

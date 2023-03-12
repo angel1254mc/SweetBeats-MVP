@@ -1,6 +1,7 @@
-import React, { useEffect, useReducer, useState } from 'react'
+import React, { createContext, useEffect, useReducer, useState } from 'react'
 
-const useInstruments = () => {
+export const InstrumentsContext = createContext(null);
+const InstrumentsContextProvider = ({children}) => {
     const [chordProgression, setChordProgression] = useState([]);
     const reducer = (state, action) => {
 
@@ -52,9 +53,12 @@ const useInstruments = () => {
             },
     });
 
-    return [
-        instruments, setInstruments
-  ]
+
+    return (
+        <InstrumentsContext.Provider value={{instruments, setInstruments}}>
+            {children}
+        </InstrumentsContext.Provider>
+    )
 }
 
-export default useInstruments
+export {InstrumentsContextProvider};
