@@ -12,7 +12,7 @@ body {
 }
 .chord-selector {
   position: absolute;
-  width: 150px;
+  width: auto;
   font-size: 0.6rem;
   display: flex;
   flex-direction: column;
@@ -23,7 +23,7 @@ body {
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  width: 100%;
+  width: 150px;
   display: flex;
   background-color: #6A6E8A;
   justify-content: center;
@@ -41,7 +41,8 @@ select.chord-select-dropdown {
   background-color: #ABABAB;
 }
 .chord-select-option {
-  display: flex;
+  display: flex !important;
+  justify-content: space-around;
   width: 100%;
 }
 .chord-select-option span {
@@ -129,4 +130,80 @@ select.chord-select-dropdown {
   border: 2px solid black;
   border-left: 1px solid black;
   border-radius: 0px 15px 15px 0px;
+}
+
+.measures-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.measure-upper-container {
+  width: 300px;
+  display: flex;
+  align-items: end;
+  height: 150px;
+}
+.measure-lower-container {
+  width: 300px;
+  display: flex;
+  align-items: start;
+  height: 150px;
+}
+.measure-vert {
+  width: 2px;
+  background-color: black;
+  height: 60px;
+}
+.measure-upper {
+  width: calc(100% - 2px);
+  display: flex;
+  height: 90%;
+  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: 2px solid black;
+}
+.instrument-stack {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3px;
+}
+.instrument-stack.upper {
+  justify-content: end;
+}
+.measure-lower {
+  width: calc(100% - 2px);
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-top: 2px solid black;
+}
+.instrument-block {
+  width: 120px;
+  height: auto;
+  padding: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-weight: 500;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+}
+
+.instrument-block.drums {
+  background-color: #455192;
+}
+.instrument-block.melody {
+  background-color: #B95264;
+}
+.instrument-block.bass {
+  background-color: #779F68;
+}
+.instrument-block.auxiliary {
+  background-color: #D2C761;
 }
