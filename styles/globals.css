@@ -194,16 +194,16 @@ select.chord-select-dropdown {
   transition: max-height 0.3s;
 }
 
-.instrument-block.drums {
+.instrument-block.ON.drums {
   background-color: #455192;
 }
-.instrument-block.melody {
+.instrument-block.ON.melody {
   background-color: #B95264;
 }
-.instrument-block.bass {
+.instrument-block.ON.bass {
   background-color: #779F68;
 }
-.instrument-block.auxiliary {
+.instrument-block.ON.auxiliary {
   background-color: #D2C761;
 }
 .on {
@@ -247,4 +247,10 @@ select.chord-select-dropdown {
 .ON {
   height: 35px;
   max-height: 35px;
+}
+
+.instrument-block.PREVIEW {
+  height: 35px;
+  max-height: 35px;
+  background-color: lightgrey;
 }

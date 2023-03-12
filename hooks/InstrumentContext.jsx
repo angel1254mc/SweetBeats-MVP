@@ -18,9 +18,15 @@ const InstrumentsContextProvider = ({children}) => {
                 return stateCopy;
             }
         }
-        if (action.type.preview && stateCopy[action.instrument][action.instrumentId][action.measureIndex] != "ON") {
-
+        if (action.type == "preview" && stateCopy[action.instrument][action.instrumentId][action.measureIndex] != "ON") {
+            stateCopy[action.instrument][action.instrumentId][action.measureIndex] = "PREVIEW";
+            return stateCopy;
         }
+        if (action.type == "unpreview" && stateCopy[action.instrument][action.instrumentId][action.measureIndex] != "ON") {
+            stateCopy[action.instrument][action.instrumentId][action.measureIndex] = "OFF";
+            return stateCopy;
+        }
+        return stateCopy;
     }
     const [instruments, setInstruments] = useReducer(reducer, {
             drums: {
