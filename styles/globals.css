@@ -207,3 +207,9 @@ select.chord-select-dropdown {
 .instrument-block.auxiliary {
   background-color: #D2C761;
 }
+.on {
+  background-color: black;
+}
+.off {
+  background-color: transparent;
+}

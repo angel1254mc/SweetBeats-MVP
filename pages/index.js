@@ -3,14 +3,91 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import InstrumentContainer from '../components/InstrumentContainer'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import MeasuresContainer from '../components/MeasuresContainer'
+import WebAudioScheduler from 'web-audio-scheduler/lib/WebAudioScheduler'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+let audioContext;
+  let sched;
+  let masterGain = null;
+  let arpBuffer;
+  let sourceArp;
+  function fetchFile(fileURL) {
+    window.fetch(fileURL)
+    .then(response => response.arrayBuffer())
+    .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
+    .then(audioBuffer => {
+      arpBuffer = audioBuffer;
+    });
+  }
+  function metronome(e) {
+    var t0 = e.playbackTime;
 
+    sched.insert(t0 + 0.000, arpHome, { frequency: 880, duration: 5.65 });
+    sched.insert(t0 + 5.65, metronome);
+  }
+
+  function arpHome(e) {
+    let sourceArp = audioContext.createBufferSource();
+    sourceArp.buffer = arpBuffer;
+    let t0 = e.playbackTime;
+    let t1 = t0 + e.args.duration;
+    var amp = audioContext.createGain();
+    sourceArp.connect(amp);
+    console.log(t0);
+    console.log(t1);
+
+    amp.gain.setValueAtTime(0.5, t0);
+    amp.gain.exponentialRampToValueAtTime(0.4, t1);
+    amp.connect(masterGain);
+    sourceArp.start(t0);
+    sourceArp.stop(t1);
+    sched.nextTick(t1, function() {
+      sourceArp.disconnect();
+      amp.disconnect();
+    });
+  }
+  function ticktack(e) {
+    var t0 = e.playbackTime;
+    var t1 = t0 + e.args.duration;
+    var osc = audioContext.createOscillator();
+    var amp = audioContext.createGain();
+
+    osc.frequency.value = e.args.frequency;
+    osc.start(t0);
+    osc.stop(t1);
+    osc.connect(amp);
+
+    amp.gain.setValueAtTime(0.5, t0);
+    amp.gain.exponentialRampToValueAtTime(0.4, t1);
+    amp.connect(masterGain);
+
+    sched.nextTick(t1, function() {
+      osc.disconnect();
+      amp.disconnect();
+    });
+  }
+
+  function start() {
+    sched.start(metronome);
+  }
+
+  function stop() {
+    sched.stop(true);
+  }
+  
+export default function Home() {
+  const [togglePlayer, setTogglePlayer] = useState(false);
+  const [gesture, setGesture] = useState(0);
   const [activeInstruments, setActiveInstruments] = useState({})
+  
+      // This is where shit gets real
+  // You Are Now Watching a React Bad Practice Master at Work
+  // Using example fromm web audio scheduler
+
+
   return (
     <>
       <Head>
@@ -25,12 +102,35 @@ export default function Home() {
           <div className="instruments">
             <div className="instrument-types-label">
               Instrument Types
+              <button onClick={() => {
+                setTogglePlayer(!togglePlayer);
+                if (togglePlayer) {
+                  start();
+                } else {
+                  stop();
+                }
+              }}>Start</button>
+              <button onClick={() => {
+                audioContext = new AudioContext();
+                sched = new WebAudioScheduler({ context: audioContext });
+          
+                sched.on("start", function() {
+                  masterGain = audioContext.createGain();
+                  masterGain.connect(audioContext.destination);
+                });
+              
+                sched.on("stop", function() {
+                  masterGain.disconnect();
+                  masterGain = null;
+                });
+                fetchFile("https://cdn.shopify.com/s/files/1/0157/3493/1504/files/Arp_resonance.mp3?v=1589768873");
+              }}>Awesome</button>
             </div>
             <div className="instruments-container">
-              <InstrumentContainer name="drums" color="#455192"/>
-              <InstrumentContainer name="bass" color="#779F68"/>
-              <InstrumentContainer name="melody" color="#B95264"/>
-              <InstrumentContainer name="auxiliary" color="#D2C761"/>
+              <InstrumentContainer name="drums" color="#455192" instrument_ident="drums"/>
+              <InstrumentContainer name="bass" color="#779F68" instrument_ident="bass"/>
+              <InstrumentContainer name="melody" color="#B95264" instrument_ident="melody"/>
+              <InstrumentContainer name="auxiliary" color="#D2C761" instrument_ident="auxiliary"/>
             </div>
           </div>
         </div>

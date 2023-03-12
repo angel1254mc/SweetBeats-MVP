@@ -12,34 +12,23 @@ const MeasuresContainer = () => {
             </div>
             <select className="chord-select-dropdown">
                 <option className="chord-select-option">
-                    <span>(1)</span>
-                    <span>
-                        (III - IV)
-                    </span>
+                    (1) (III - IV)
                 </option>
                 <option className="chord-select-option">
-                    <span>(2)</span>
-                    <span>
-                        (I - IV)
-                    </span>
+                    (2) (I - IV)
                 </option>
                 <option className="chord-select-option">
-                    <span>(3)</span>
-                    <span>
-                        (IV - V)
-                    </span>
+                    (3) (IV - V)
+
                 </option>
                 <option className="chord-select-option">
-                    <span>(4)</span>
-                    <span>
-                        (II - III)
-                    </span>
+                    (4) (II - III)
                 </option>
             </select>
         </div>
         <div className="measures-container">
             <Measure id={0}/>
-            <Measure id={0}/>
+            <Measure id={1}/>
         </div>
 
     </div>

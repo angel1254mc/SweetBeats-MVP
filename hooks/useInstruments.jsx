@@ -1,43 +1,59 @@
-import React from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
 
 const useInstruments = () => {
     const [chordProgression, setChordProgression] = useState([]);
-    const [instruments, setInstruments] = useState({
+    const reducer = (state, action) => {
+
+        let stateCopy = {...state};
+        if (action.type == "toggle") {
+
+            if (stateCopy[action.instrument][action.instrumentId][action.measureIndex] == "ON") {
+                stateCopy[action.instrument][action.instrumentId][action.measureIndex] = "OFF";
+                return stateCopy;
+            } else if (stateCopy[action.instrument][action.instrumentId][action.measureIndex] == "OFF" || stateCopy[action.instrument][action.instrumentId][action.measureIndex] == "PREVIEW") {
+                
+                stateCopy[action.instrument][action.instrumentId][action.measureIndex] = "ON";
+
+                return stateCopy;
+            }
+        }
+        if (action.type.preview && stateCopy[action.instrument][action.instrumentId][action.measureIndex] != "ON") {
+
+        }
+    }
+    const [instruments, setInstruments] = useReducer(reducer, {
             drums: {
-                1: [false, false],
-                2: [false, false],
-                3: [false, false],
-                4: [false, false],
-                5: [false, false],
+                1: ["OFF", "OFF"],
+                2: ["OFF", "OFF"],
+                3: ["OFF", "OFF"],
+                4: ["OFF", "OFF"],
+                5: ["OFF", "OFF"],
             },
             bass: {
-                1: [false, false],
-                2: [false, false],
-                3: [false, false],
-                4: [false, false],
-                5: [false, false],
+                1: ["OFF", "OFF"],
+                2: ["OFF", "OFF"],
+                3: ["OFF", "OFF"],
+                4: ["OFF", "OFF"],
+                5: ["OFF", "OFF"],
             },
             melody: {
-                1: [false, false],
-                2: [false, false],
-                3: [false, false],
-                4: [false, false],
-                5: [false, false],
+                1: ["OFF", "OFF"],
+                2: ["OFF", "OFF"],
+                3: ["OFF", "OFF"],
+                4: ["OFF", "OFF"],
+                5: ["OFF", "OFF"],
             },
             auxiliary: {
-                1: [false, false],
-                2: [false, false],
-                3: [false, false],
-                4: [false, false],
-                5: [false, false],
+                1: ["OFF", "OFF"],
+                2: ["OFF", "OFF"],
+                3: ["OFF", "OFF"],
+                4: ["OFF", "OFF"],
+                5: ["OFF", "OFF"],
             },
     });
 
-    useEffect(() => {
-
-    }, [])
     return [
-
+        instruments, setInstruments
   ]
 }
 
