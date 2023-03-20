@@ -4,7 +4,7 @@ import React from 'react'
 const index = () => {
   return (
     <div className="">
-      Glizzy
+      <Link href="/program">Go to program</Link>
     </div>
   )
 }
