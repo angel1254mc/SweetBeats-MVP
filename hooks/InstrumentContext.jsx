@@ -13,6 +13,11 @@ const InstrumentsContextProvider = ({children}) => {
 
     const loop = useRef();
     const samples = useRef();
+    const instrumentKeys = ["drums", "bass", "melody", "auxiliary"];
+
+    // action.instrument = string identifier for the instrument ("drums", "melody", etc.)
+    // action.instrumentId = number identifier for which of the 5 different tracks are to be added
+    // action.measureIndex = index of the measure to play/preview/remove the instrument from (0 for the first one, 1 for the second one)
 
     const reducer = (state, action) => {
         let stateCopy = {...state};
@@ -103,12 +108,27 @@ const InstrumentsContextProvider = ({children}) => {
     //  Configured as a 85bpm track, but takes in four loops of 4 beats (and each of our measures is 8 beats so it works)
     loop.current = new Sequence(
       (time, beat) => {
+
         if (beat == 0) {
-          console.log(samples.current);
-          samples.current.player("melody1").start(time);
+          
+          instrumentKeys.forEach((key) => {
+            for (let i = 1; i < 6; i++) {
+              let instrumentState = instruments[key][i][0];
+              if (instrumentState != "OFF") {
+                samples.current.player(`${key}${i}`).start(time);
+              }
+            }
+          })
         }
         if (beat == 8) {
-          samples.current.player("melody2").start(time);
+          instrumentKeys.forEach((key) => {
+            for (let i = 1; i < 6; i++) {
+              let instrumentState = instruments[key][i][1];
+              if (instrumentState != "OFF") {
+                samples.current.player(`${key}${i}`).start(time);
+              }
+            }
+          })
         }
       },
       [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
