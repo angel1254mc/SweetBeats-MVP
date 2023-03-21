@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from 'react'
 import MeasuresContainer from '../components/MeasuresContainer'
 import {InstrumentsContext, InstrumentsContextProvider} from '../hooks/InstrumentContext'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -26,9 +27,21 @@ export default function Home() {
           {
             !gesture ? 
             <div className="initialize-audio-overlay">
+              <div class="intro-text"><h2 style={{textAlign: "center"}}>
+
+              With SweetBeats, you can add or remove tracks to two measures<br></br>
+              which will loop into each other. You can click on the left side of the  <br></br>
+              button to add it to the first measure and the right side for the second. <br></br>
+              You can also hover over a button to hear how it will sound in the mix. <br></br>
+              Click start to begin playing the loop.
+
+
+
+              </h2>
             <button className="initialize-audio-button" onClick={() => {
               setGesture(true);
             }}>Click Here to Initialize Audio Context!</button>
+            </div>
           </div> : <></>}
           <MeasuresContainer/>
           <div className="instruments">

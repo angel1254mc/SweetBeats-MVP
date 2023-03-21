@@ -264,3 +264,10 @@ select.chord-select-dropdown {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+.intro-text {
+  height: 0vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
