@@ -18,7 +18,7 @@ const Measure2 = ({id}) => {
         // Ima need a droppable for each of the instruments
         return (
           <Droppable
-            type="drums"
+            type="INSTRUMENT"
             direction="horizontal"
             // ensure unique id by identifying with instrument and measure index/id
             droppableId={`measure-${id}-${key}`}
