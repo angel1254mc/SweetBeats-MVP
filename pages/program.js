@@ -27,14 +27,13 @@ export default function Home() {
           {
             !gesture ? 
             <div className="initialize-audio-overlay">
+              
               <div class="intro-text"><h2 style={{textAlign: "center"}}>
-
-              With SweetBeats, you can add or remove tracks to two measures<br></br>
-              which will loop into each other. You can click on the left side of the  <br></br>
-              button to add it to the first measure and the right side for the second. <br></br>
-              You can also hover over a button to hear how it will sound in the mix. <br></br>
-              Click start to begin playing the loop.
-
+              SweetBeats is a music looping application designed for beginners<br></br>
+              as well as people experienced in music production. Sweetbeats allows you  <br></br>
+              to add or remove tracks from either or both of two measures which loop <br></br>
+              into each other. You can also hover over an instrumentent track to hear <br></br>
+              a preview of how it will sound in the mix. Click start to begin playing the loop.
 
 
               </h2>
