@@ -17,8 +17,12 @@
     "eslint-config-next": "13.2.3",
     "next": "13.2.3",
     "react": "18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "18.2.0",
     "tone": "^14.7.77",
     "web-audio-scheduler": "^1.4.0"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^6.5.1"
   }
 }
