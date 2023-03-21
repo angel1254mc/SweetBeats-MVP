@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   const [togglePlayer, setTogglePlayer] = useState(true);
   const [gesture, setGesture] = useState(false);
-  const {initializeAudioContext, start, stop} = useContext(InstrumentsContext)
+  const  {start, stop} = useContext(InstrumentsContext)
   return (
     <>
       <Head>
@@ -27,7 +27,6 @@ export default function Home() {
             !gesture ? 
             <div className="initialize-audio-overlay">
             <button className="initialize-audio-button" onClick={() => {
-              initializeAudioContext();
               setGesture(true);
             }}>Click Here to Initialize Audio Context!</button>
           </div> : <></>}
