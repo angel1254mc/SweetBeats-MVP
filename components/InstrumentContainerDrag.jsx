@@ -15,6 +15,21 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
     4: "#B95264",
     5: "#455192",
   };
+
+  // This function disables the drop animation
+  function getStyle(style, snapshot) {
+    console.log(snapshot.isDropAnimating);
+    if (!snapshot.isDropAnimating) {
+      return style;
+    }
+    return {
+      ...style,
+
+      transition: `all 0.001s ease`,
+      opacity: 0,
+    };
+  }
+
   const [winReady, setwinReady] = useState(false);
     useEffect(() => {
         setwinReady(true);
@@ -26,7 +41,7 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
     return (
       <div className={`${name} instrument-container`}>
         <div className={`${name} label`}>
-          <div className="instrument-label" style={{ backgroundColor: color }}>
+          <div className="instrument-label" styles={{ backgroundColor: color }}>
             {upperString}
           </div>
         </div>
@@ -55,10 +70,11 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
                             {(draggableProvided, draggableSnapshot) => {
                               return (
                                 <div
-                                  style={{ width: 30, height: 30 }}
                                   ref={draggableProvided.innerRef}
                                   {...draggableProvided.draggableProps}
                                   {...draggableProvided.dragHandleProps}
+                                  style={getStyle(draggableProvided.draggableProps.style, draggableSnapshot)}
+                                  isDragging={draggableSnapshot.isDragging && !draggableSnapshot.isDropAnimating}
                                 >
                                   <Circle
                                     width={30}
@@ -112,10 +128,11 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
                             {(draggableProvided, draggableSnapshot) => {
                               return (
                                 <div
-                                  style={{ width: 30, height: 30 }}
                                   ref={draggableProvided.innerRef}
                                   {...draggableProvided.draggableProps}
                                   {...draggableProvided.dragHandleProps}
+                                  style={getStyle(draggableProvided.draggableProps.style, draggableSnapshot)}
+                                  isDragging={draggableSnapshot.isDragging && !draggableSnapshot.isDropAnimating}
                                 >
                                   <Triangle
                                     width={30}
@@ -169,10 +186,11 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
                           {(draggableProvided, draggableSnapshot) => {
                             return (
                               <div
-                                style={{ width: 30, height: 30 }}
                                 ref={draggableProvided.innerRef}
                                 {...draggableProvided.draggableProps}
                                 {...draggableProvided.dragHandleProps}
+                                style={getStyle(draggableProvided.draggableProps.style, draggableSnapshot)}
+                                isDragging={draggableSnapshot.isDragging && !draggableSnapshot.isDropAnimating}
                               >
                                 <Square
                                   width={30}
@@ -226,10 +244,11 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
                             {(draggableProvided, draggableSnapshot) => {
                               return (
                                 <div
-                                  style={{ width: 30, height: 30 }}
                                   ref={draggableProvided.innerRef}
                                   {...draggableProvided.draggableProps}
                                   {...draggableProvided.dragHandleProps}
+                                  style={getStyle(draggableProvided.draggableProps.style, draggableSnapshot)}
+                                  isDragging={draggableSnapshot.isDragging && !draggableSnapshot.isDropAnimating}
                                 >
                                   <Pentagon
                                     width={30}

@@ -17,7 +17,33 @@ import { InstrumentsContext } from '../hooks/InstrumentContext';
  */
 const program2 = () => {
     const [togglePlayer, setTogglePlayer] = useState(true);
-    const  {start, stop} = useContext(InstrumentsContext)
+    const  {start, stop, setInstruments} = useContext(InstrumentsContext);
+
+    const onDragEnd = ({ source, destination, type, draggableId }) => {
+      if (!destination) {
+        return
+      }
+
+      // Get all the info we need for determining instrument activation/preview
+      const instrument_ident = draggableId.substring(0, draggableId.length - 2);
+      const instrument_number = draggableId.substring(draggableId.length - 1, draggableId.length);
+     
+      if (destination.droppableId.includes("measure-0")) {
+        setInstruments({
+          type: "toggle",
+          instrument: instrument_ident,
+          instrumentId: instrument_number,
+          measureIndex: 0
+        })
+      } else if (destination.droppableId.includes("measure-1")) {
+        setInstruments({
+          type: "toggle",
+          instrument: instrument_ident,
+          instrumentId: instrument_number,
+          measureIndex: 1
+        });
+      } 
+    }
     return (
       <>
         <Head>
@@ -27,7 +53,7 @@ const program2 = () => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main>
-        <DragDropContext onDragEnd={() => console.log("hello")}>
+        <DragDropContext onDragEnd={onDragEnd}>
           <div className="main_app_container">
             <MeasuresContainer2/>
             <div className="instruments">

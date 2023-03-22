@@ -13,34 +13,33 @@ const Measure2 = ({id}) => {
    */
   const instrumentKeys = Object.keys(instruments);
   return (
-    <div className={styles.measure_col}>
-      {instrumentKeys.map((key) => {
-        // Ima need a droppable for each of the instruments
-        return (
-          <Droppable
+    <Droppable
             type="INSTRUMENT"
             direction="horizontal"
             // ensure unique id by identifying with instrument and measure index/id
-            droppableId={`measure-${id}-${key}`}
+            droppableId={`measure-${id}`}
           >
-            {(droppableProvided, droppableSnapshot) => {
+             {(droppableProvided, droppableSnapshot) => {
                 // Inside here, return some element that takes in the droppable props needed for correct functionality
                 return (
-                    <InstrumentRow
-                        key={key}
-                        droppableProvidedInfo={droppableProvided}
-                        measureId={id}
-                        instrument={key}>
-                            {/**Nothing inside here, let each instrument row handle its own instruments */}
-                    </InstrumentRow>
-                        
-                )
-            }}
-
-          </Droppable>
-        );
-      })}
-    </div>
+                  <div 
+                  ref={droppableProvided.innerRef}
+                  {...droppableProvided.droppableProps}
+                  className={styles.measure_col}>
+                    {instrumentKeys.map((key) => {
+                      return (
+                        <InstrumentRow
+                            key={key}
+                            measureId={id}
+                            instrument={key}>
+                                {/**Nothing inside here, let each instrument row handle its own instruments */}
+                        </InstrumentRow>
+                      )
+                    })}
+                    
+                  </div>
+                )}}
+    </Droppable>
   );
 };
 
