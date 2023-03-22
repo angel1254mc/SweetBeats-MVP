@@ -18,7 +18,9 @@ import { InstrumentsContext } from '../hooks/InstrumentContext';
 const program2 = () => {
     const [togglePlayer, setTogglePlayer] = useState(true);
     const  {start, stop, setInstruments} = useContext(InstrumentsContext);
-
+    const onDragHoverOver = ({}) => {
+      // Function that reads if the current draggable is hovering over a measure, previews it when it enters, removes the preview once it leaves.
+    }
     const onDragEnd = ({ source, destination, type, draggableId }) => {
       if (!destination) {
         return
