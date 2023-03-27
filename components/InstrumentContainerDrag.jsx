@@ -34,7 +34,7 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
     useEffect(() => {
         setwinReady(true);
     }, []);
-    if (!winReady) {
+    if (!winReady || !instruments) {
         return <></>
     }
   if (instrument_ident == "drums")
