@@ -157,7 +157,7 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
     return (
       <div className={`${name} instrument-container`}>
         <div className={`${name} label`}>
-          <div key={key} className="instrument-label" style={{ backgroundColor: color }}>
+          <div className="instrument-label" style={{ backgroundColor: color }}>
             {upperString}
           </div>
         </div>
