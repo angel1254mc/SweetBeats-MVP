@@ -12,13 +12,13 @@ const Measure = ({id}) => {
             <div className="measure-vert"/>
             <div className="measure-upper">
                 <div className="instrument-stack upper">
-                    {Object.keys(instruments["drums"]).map((instrument_number) => {
-                        return <InstrumentBox name="Drums" instrument={"drums"} number={instrument_number} activity={instruments["drums"][instrument_number][id]}/>
+                    {Object.keys(instruments["drums"]).map((instrument_number, index) => {
+                        return <InstrumentBox key={"drums"+ index} name="Drums" instrument={"drums"} number={instrument_number} activity={instruments["drums"][instrument_number][id]}/>
                     })}
                 </div>
                 <div className="instrument-stack upper">
-                    {Object.keys(instruments["bass"]).map((instrument_number) => {
-                        return <InstrumentBox name="Bass" instrument={"bass"} number={instrument_number} activity={instruments["bass"][instrument_number][id]}/>
+                    {Object.keys(instruments["bass"]).map((instrument_number, index) => {
+                        return <InstrumentBox key={"bass" + index} name="Bass" instrument={"bass"} number={instrument_number} activity={instruments["bass"][instrument_number][id]}/>
                     })}
                 </div>
             </div>
@@ -28,13 +28,13 @@ const Measure = ({id}) => {
             <div className="measure-vert"/>
             <div className="measure-lower">
                 <div className="instrument-stack lower">
-                {Object.keys(instruments["melody"]).map((instrument_number) => {
-                        return <InstrumentBox name="Melody" instrument={"melody"} number={instrument_number} activity={instruments["melody"][instrument_number][id]}/>
+                {Object.keys(instruments["melody"]).map((instrument_number, index) => {
+                        return <InstrumentBox key={"melody" + index} name="Melody" instrument={"melody"} number={instrument_number} activity={instruments["melody"][instrument_number][id]}/>
                     })}
                 </div>
                 <div className="instrument-stack lower">
-                    {Object.keys(instruments["auxiliary"]).map((instrument_number) => {
-                        return <InstrumentBox name="Auxiliary" instrument={"auxiliary"} number={instrument_number} activity={instruments["auxiliary"][instrument_number][id]}/>
+                    {Object.keys(instruments["auxiliary"]).map((instrument_number, index) => {
+                        return <InstrumentBox key={"auxiliary" + index} name="Auxiliary" instrument={"auxiliary"} number={instrument_number} activity={instruments["auxiliary"][instrument_number][id]}/>
                     })}
                 </div>
 

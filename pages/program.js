@@ -7,9 +7,6 @@ import { useContext, useEffect, useState } from 'react'
 import MeasuresContainer from '../components/MeasuresContainer'
 import {InstrumentsContext, InstrumentsContextProvider} from '../hooks/InstrumentContext'
 
-
-const inter = Inter({ subsets: ['latin'] })
-
 export default function Home() {
   const [togglePlayer, setTogglePlayer] = useState(true);
   const [gesture, setGesture] = useState(false);

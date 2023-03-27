@@ -15,7 +15,7 @@ import { InstrumentsContext } from '../hooks/InstrumentContext';
  * the instrument state in a way that the dnd state handler can read it
  * @returns 
  */
-const program2 = () => {
+export default function Program2() {
     const [togglePlayer, setTogglePlayer] = useState(true);
     const  {start, stop, setInstruments} = useContext(InstrumentsContext);
     const onDragHoverOver = ({}) => {
@@ -83,5 +83,3 @@ const program2 = () => {
       </>
     )
 }
-
-export default program2
