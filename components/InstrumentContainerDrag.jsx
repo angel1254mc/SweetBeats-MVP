@@ -48,7 +48,123 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
     return (
       <div className={`${name} instrument-container`}>
         <div className={`${name} label`}>
-          <div className="instrument-label" styles={{ backgroundColor: color }}>
+          <div className="instrument-label" style={{ backgroundColor: color }}>
+            {upperString}
+          </div>
+        </div>
+        <div className="instrument-buttons">
+          {Object.keys(instruments[instrument_ident]).map((key, index) => {
+            return (
+                <div key={key} className={`${name} button-container-${key}`}>
+                  <p>{key}</p>
+                  <Droppable
+                    type="INSTRUMENT"
+                    droppableId={`droppable-${instrument_ident}-${key}`}
+                  >
+                    {(droppableProvided, droppableSnapshot) => {
+                      return (
+                        <div
+                          width={30}
+                          ref={droppableProvided.innerRef}
+                          {...droppableProvided.droppableProps}
+                        >
+                          <Draggable
+                            type="INSTRUMENT"
+                            key={key}
+                            draggableId={`${instrument_ident}-${key}`}
+                            index={index}
+                          >
+                            {(draggableProvided, draggableSnapshot) => {
+                              return (
+                                <div
+                                  ref={draggableProvided.innerRef}
+                                  {...draggableProvided.draggableProps}
+                                  {...draggableProvided.dragHandleProps}
+                                  style={getStyle(draggableProvided.draggableProps.style, draggableSnapshot)}
+                                  isDragging={draggableSnapshot.isDragging && !draggableSnapshot.isDropAnimating}
+                                >
+                                  <Circle
+                                    width={30}
+                                    height={30}
+                                    fill={colorsMap[key]}
+                                  />
+                                </div>
+                              );
+                            }}
+                          </Draggable>
+                        </div>
+                      );
+                    }}
+                  </Droppable>
+                </div>
+              )
+          })}
+        </div>
+      </div>
+    );
+    if (instrument_ident == "snare")
+    return (
+      <div className={`${name} instrument-container`}>
+        <div className={`${name} label`}>
+          <div className="instrument-label" style={{ backgroundColor: color }}>
+            {upperString}
+          </div>
+        </div>
+        <div className="instrument-buttons">
+          {Object.keys(instruments[instrument_ident]).map((key, index) => {
+            return (
+                <div key={key} className={`${name} button-container-${key}`}>
+                  <p>{key}</p>
+                  <Droppable
+                    type="INSTRUMENT"
+                    droppableId={`droppable-${instrument_ident}-${key}`}
+                  >
+                    {(droppableProvided, droppableSnapshot) => {
+                      return (
+                        <div
+                          width={30}
+                          ref={droppableProvided.innerRef}
+                          {...droppableProvided.droppableProps}
+                        >
+                          <Draggable
+                            type="INSTRUMENT"
+                            key={key}
+                            draggableId={`${instrument_ident}-${key}`}
+                            index={index}
+                          >
+                            {(draggableProvided, draggableSnapshot) => {
+                              return (
+                                <div
+                                  ref={draggableProvided.innerRef}
+                                  {...draggableProvided.draggableProps}
+                                  {...draggableProvided.dragHandleProps}
+                                  style={getStyle(draggableProvided.draggableProps.style, draggableSnapshot)}
+                                  isDragging={draggableSnapshot.isDragging && !draggableSnapshot.isDropAnimating}
+                                >
+                                  <Circle
+                                    width={30}
+                                    height={30}
+                                    fill={colorsMap[key]}
+                                  />
+                                </div>
+                              );
+                            }}
+                          </Draggable>
+                        </div>
+                      );
+                    }}
+                  </Droppable>
+                </div>
+              )
+          })}
+        </div>
+      </div>
+    );
+    if (instrument_ident == "cymbal")
+    return (
+      <div className={`${name} instrument-container`}>
+        <div className={`${name} label`}>
+          <div className="instrument-label" style={{ backgroundColor: color }}>
             {upperString}
           </div>
         </div>

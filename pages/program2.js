@@ -71,7 +71,9 @@ export default function Program2() {
                 }}>Start</button>
               </div>
               <div className="instruments-container">
-                <InstrumentContainerDrag name="drums" color="#455192" instrument_ident="kick"/>
+                <InstrumentContainerDrag name="kick" color="#455192" instrument_ident="kick"/>
+                <InstrumentContainerDrag name="snare" color="#455192" instrument_ident="snare"/>
+                <InstrumentContainerDrag name="cymbal" color="#455192" instrument_ident="cymbal"/>
                 <InstrumentContainerDrag name="bass" color="#779F68" instrument_ident="bass"/>
                 <InstrumentContainerDrag name="melody" color="#B95264" instrument_ident="melody"/>
                 <InstrumentContainerDrag name="auxiliary" color="#D2C761" instrument_ident="auxiliary"/>

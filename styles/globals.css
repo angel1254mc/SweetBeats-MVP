@@ -194,7 +194,10 @@ select.chord-select-dropdown {
   transition: max-height 0.3s;
 }
 
-.instrument-block.ON.drums {
+.instrument-block.ON.drums  {
+  background-color: #455192;
+}
+.instrument-block.ON.kick, .instrument-block.ON.cymbal, .instrument-block.ON.snare {
   background-color: #455192;
 }
 .instrument-block.ON.melody {

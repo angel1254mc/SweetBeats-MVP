@@ -35,7 +35,7 @@ const InstrumentImage = ({instrument, number, empty, measure}) => {
   return (
     <div onClick={removeFromMeasure} className={styles.instrument_image}>
       {
-        instrument == "drums" ? <Circle width={60} height={60} fill={colorsMap[number]}/> : instrument == "melody" ? <Square width={60} height={60} fill={colorsMap[number]}/> : instrument == "auxiliary" ? <Pentagon width={60} height={60}  fill={colorsMap[number]}/> : <Triangle width={60} height={60}  fill={colorsMap[number]}/> 
+        instrument == "drums" || instrument == "cymbal" || instrument == "snare" || instrument == "kick" ? <Circle width={60} height={60} fill={colorsMap[number]}/> : instrument == "melody" ? <Square width={60} height={60} fill={colorsMap[number]}/> : instrument == "auxiliary" ? <Pentagon width={60} height={60}  fill={colorsMap[number]}/> : <Triangle width={60} height={60}  fill={colorsMap[number]}/> 
       }
     </div>
   )
