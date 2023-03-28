@@ -93,8 +93,7 @@ const InstrumentsContextProvider = ({children}) => {
     Transport.bpm.value = 120;
     samples.current = new Players(
       {
-        "melody1": "/Chord1_resonance.mp3",
-        "melody2": "/Chord2_resonance.mp3",
+        
         "auxiliary1": "/Lead1_resonance.mp3",
         "kick1": "/Kick 1.wav",
         "kick2": "/Kick 2.wav",
@@ -108,6 +107,9 @@ const InstrumentsContextProvider = ({children}) => {
         "cymbal2": "/Cymbal 2.wav",
         "cymbal3": "/Cymbal 3.wav",
         "cymbal4": "/Cymbal 4.wav",
+        "melody2" : "/Melody 1.wav",
+        "auxiliary3": "/Aux 1.wav",
+        "bass4": "/Bass 1.wav"
       },
       {
         onload: () => {
