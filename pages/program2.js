@@ -5,7 +5,7 @@ import InstrumentContainer from '../components/InstrumentContainer';
 import InstrumentContainerDrag from '../components/InstrumentContainerDrag';
 import MeasuresContainer2 from '../components/MeasuresContainer2';
 import { InstrumentsContext } from '../hooks/InstrumentContext';
-
+// Yea
 /**
  * Program 2 is the same thing as the first program file, except that this one deals
  * with drag and drop
@@ -15,7 +15,7 @@ import { InstrumentsContext } from '../hooks/InstrumentContext';
  * the instrument state in a way that the dnd state handler can read it
  * @returns 
  */
-const program2 = () => {
+export default function Program2() {
     const [togglePlayer, setTogglePlayer] = useState(true);
     const  {start, stop, setInstruments} = useContext(InstrumentsContext);
     const onDragHoverOver = ({}) => {
@@ -83,5 +83,4 @@ const program2 = () => {
       </>
     )
 }
-
-export default program2
+// Oh my gooood

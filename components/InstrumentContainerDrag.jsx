@@ -34,7 +34,7 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
     useEffect(() => {
         setwinReady(true);
     }, []);
-    if (!winReady) {
+    if (!winReady || !instruments) {
         return <></>
     }
   if (instrument_ident == "drums")
@@ -48,7 +48,7 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
         <div className="instrument-buttons">
           {Object.keys(instruments[instrument_ident]).map((key, index) => {
             return (
-                <div className={`${name} button-container-${key}`}>
+                <div key={key} className={`${name} button-container-${key}`}>
                   <p>{key}</p>
                   <Droppable
                     type="INSTRUMENT"
@@ -106,7 +106,7 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
         <div className="instrument-buttons">
           {Object.keys(instruments[instrument_ident]).map((key, index) => {
             return (
-                <div className={`${name} button-container-${key}`}>
+                <div key={key} className={`${name} button-container-${key}`}>
                   <p>{key}</p>
                   <Droppable
                     type="INSTRUMENT"
@@ -164,7 +164,7 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
         <div className="instrument-buttons">
           {Object.keys(instruments[instrument_ident]).map((key, index) => {
             return (
-              <div className={`${name} button-container-${key}`}>
+              <div key={key} className={`${name} button-container-${key}`}>
                 <p>{key}</p>
                 <Droppable
                   type="INSTRUMENT"
@@ -222,7 +222,7 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
         <div className="instrument-buttons">
           {Object.keys(instruments[instrument_ident]).map((key, index) => {
             return (
-                <div className={`${name} button-container-${key}`}>
+                <div key={key} className={`${name} button-container-${key}`}>
                   <p>{key}</p>
                   <Droppable
                     type="INSTRUMENT"
