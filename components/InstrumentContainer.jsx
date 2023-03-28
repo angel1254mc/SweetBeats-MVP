@@ -265,7 +265,16 @@ const InstrumentContainer = ({ name, color, instrument_ident }) => {
             ></button>
           </div>
         </div>
-        <div className={`${name} button-container-5`}>
+        
+      </div>
+    </div>
+  );
+};
+
+export default InstrumentContainer;
+
+/**
+ * <div className={`${name} button-container-5`}>
           <p>5</p>
           <div>
             <button
@@ -328,9 +337,4 @@ const InstrumentContainer = ({ name, color, instrument_ident }) => {
             ></button>
           </div>
         </div>
-      </div>
-    </div>
-  );
-};
-
-export default InstrumentContainer;
+ */
