@@ -18,10 +18,20 @@ import { InstrumentsContext } from '../hooks/InstrumentContext';
 export default function Program2() {
     const [togglePlayer, setTogglePlayer] = useState(true);
     const  {start, stop, setInstruments} = useContext(InstrumentsContext);
-    const onDragHoverOver = ({}) => {
-      // Function that reads if the current draggable is hovering over a measure, previews it when it enters, removes the preview once it leaves.
+    const [isDragging, setIsDragging] = useState(false);
+    const [currDragging, setCurrDragging] = useState(null);
+    const onDragStart = ({draggableId}) => {
+      const instrument_ident = draggableId.substring(0, draggableId.length - 2);
+      const instrument_number = draggableId.substring(draggableId.length - 1, draggableId.length);
+      setCurrDragging({instrument_ident, instrument_number});
+      setIsDragging(true);
     }
+
+
+
     const onDragEnd = ({ source, destination, type, draggableId }) => {
+      setIsDragging(false);
+
       if (!destination) {
         return
       }
@@ -55,7 +65,7 @@ export default function Program2() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main>
-        <DragDropContext onDragEnd={onDragEnd}>
+        <DragDropContext onDragEnd={onDragEnd} onDragStart={onDragStart}>
           <div className="main_app_container">
             <MeasuresContainer2/>
             <div className="instruments">

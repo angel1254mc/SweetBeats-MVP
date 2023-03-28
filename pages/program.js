@@ -53,10 +53,12 @@ export default function Home() {
               }}>Start</button>
             </div>
             <div className="instruments-container">
-              <InstrumentContainer name="drums" color="#455192" instrument_ident="drums"/>
-              <InstrumentContainer name="bass" color="#779F68" instrument_ident="bass"/>
-              <InstrumentContainer name="melody" color="#B95264" instrument_ident="melody"/>
-              <InstrumentContainer name="auxiliary" color="#D2C761" instrument_ident="auxiliary"/>
+              <InstrumentContainer instrument_amount={4} name="snare" color="#455192" instrument_ident="snare"/>
+              <InstrumentContainer instrument_amount={4} name="kick" color="#455192" instrument_ident="kick"/>
+              <InstrumentContainer instrument_amount={4} name="cymbal" color="#455192" instrument_ident="cymbal"/>
+              <InstrumentContainer instrument_amount={4} name="bass" color="#779F68" instrument_ident="bass"/>
+              <InstrumentContainer instrument_amount={4} name="melody" color="#B95264" instrument_ident="melody"/>
+              <InstrumentContainer instrument_amount={4} name="auxiliary" color="#D2C761" instrument_ident="auxiliary"/>
             </div>
           </div>
         </div>

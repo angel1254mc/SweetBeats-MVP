@@ -79,9 +79,9 @@ select.chord-select-dropdown {
 .instrument-container {
   border: 1px solid black;
   display: flex;
-  flex-direction: column;
-  flex-basis: 25%;
+  flex-basis: 16.5%;
   flex-grow: 1;
+  flex-direction: column;
   padding-top: 10px;
 }
 .label {

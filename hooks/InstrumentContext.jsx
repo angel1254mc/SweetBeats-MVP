@@ -43,33 +43,41 @@ const InstrumentsContextProvider = ({children}) => {
         return stateCopy;
     }
     const [instruments, setInstruments] = useReducer(reducer, {
-            drums: {
+            snare: {
                 1: ["OFF", "OFF"],
                 2: ["OFF", "OFF"],
                 3: ["OFF", "OFF"],
                 4: ["OFF", "OFF"],
-                5: ["OFF", "OFF"],
+            },
+            kick: {
+                1: ["OFF", "OFF"],
+                2: ["OFF", "OFF"],
+                3: ["OFF", "OFF"],
+                4: ["OFF", "OFF"],
+            },
+            cymbal: {
+                1: ["OFF", "OFF"],
+                2: ["OFF", "OFF"],
+                3: ["OFF", "OFF"],
+                4: ["OFF", "OFF"],
             },
             bass: {
                 1: ["OFF", "OFF"],
                 2: ["OFF", "OFF"],
                 3: ["OFF", "OFF"],
                 4: ["OFF", "OFF"],
-                5: ["OFF", "OFF"],
             },
             melody: {
                 1: ["OFF", "OFF"],
                 2: ["OFF", "OFF"],
                 3: ["OFF", "OFF"],
                 4: ["OFF", "OFF"],
-                5: ["OFF", "OFF"],
             },
             auxiliary: {
                 1: ["OFF", "OFF"],
                 2: ["OFF", "OFF"],
                 3: ["OFF", "OFF"],
                 4: ["OFF", "OFF"],
-                5: ["OFF", "OFF"],
             },
     });
   const start = () => {
