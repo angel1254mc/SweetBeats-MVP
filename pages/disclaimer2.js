@@ -13,7 +13,7 @@ const disclaimer2 = () => {
         rowGap: "8px",
         fontSize: "1.4rem"
     }}>
-        <div style={{
+       <div style={{
             width: "70%",
             height: "auto"
         }}>
@@ -23,7 +23,17 @@ const disclaimer2 = () => {
             into each other. You can also hover over an instrumentent track to hear
             a preview of how it will sound in the mix. Click start to begin playing the loop.
         </div>
+        <div style={{
+            width: "70%",
+            marginTop: "12px"
+        }}>
+        <b>Task 1:</b> Add a different track to measure 1, measure 2, and both measures EACH <br></br>
+        ○ Task objective: One track is playing on measure 1 only, one track is <br></br>
+        playing on measure 2 only, and one track is playing on both measures <br></br>
+        <b>Task 2:</b> Add a track of each instrument group to the track loop. <br></br>
+        ○ Task objective: The loop is continuously playing one track from each instrument type simultaneously
         
+        </div>
         <Link href="/program2">Go to SweetBeats</Link>
 
     </div>
