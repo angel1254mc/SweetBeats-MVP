@@ -25,15 +25,7 @@ export default function Home() {
             !gesture ? 
             <div className="initialize-audio-overlay">
               
-              <div class="intro-text"><h2 style={{textAlign: "center"}}>
-              SweetBeats is a music looping application designed for beginners<br></br>
-              as well as people experienced in music production. Sweetbeats allows you  <br></br>
-              to add or remove tracks from either or both of two measures which loop <br></br>
-              into each other. You can also hover over an instrumentent track to hear <br></br>
-              a preview of how it will sound in the mix. Click start to begin playing the loop.
-
-
-              </h2>
+              <div class="intro-text">
             <button className="initialize-audio-button" onClick={() => {
               setGesture(true);
             }}>Click Here to Initialize Audio Context!</button>

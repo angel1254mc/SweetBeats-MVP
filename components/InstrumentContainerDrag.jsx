@@ -44,7 +44,7 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
     if (!winReady || !instruments) {
         return <></>
     }
-  if (instrument_ident == "drums")
+  if (instrument_ident == "kick")
     return (
       <div className={`${name} instrument-container`}>
         <div className={`${name} label`}>
