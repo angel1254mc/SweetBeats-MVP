@@ -13,7 +13,7 @@ const InstrumentsContextProvider = ({children}) => {
 
     const loop = useRef();
     const samples = useRef();
-    const instrumentKeys = ["kick","bass", "melody", "auxiliary"];
+    const instrumentKeys = ["kick", "snare", "cymbal", "bass", "melody", "auxiliary"];
 
     // action.instrument = string identifier for the instrument ("drums", "melody", etc.)
     // action.instrumentId = number identifier for which of the 5 different tracks are to be added
@@ -48,6 +48,18 @@ const InstrumentsContextProvider = ({children}) => {
                 2: ["OFF", "OFF"],
                 3: ["OFF", "OFF"],
                 4: ["OFF", "OFF"],
+            },
+            snare: {
+              1: ["OFF", "OFF"],
+              2: ["OFF", "OFF"],
+              3: ["OFF", "OFF"],
+              4: ["OFF", "OFF"],
+            },
+            cymbal: {
+              1: ["OFF", "OFF"],
+              2: ["OFF", "OFF"],
+              3: ["OFF", "OFF"],
+              4: ["OFF", "OFF"],
             },
             bass: {
                 1: ["OFF", "OFF"],
@@ -88,7 +100,10 @@ const InstrumentsContextProvider = ({children}) => {
         "kick2": "/Kick 2.wav",
         "kick3": "/Kick 3.wav",
         "kick4": "/Kick 4.wav",
-        "snare1": "/Snare 1.wav"
+        "snare1": "/Snare 1.wav",
+        "snare2": "/Snare 2.wav",
+        "snare3": "/Snare 3.wav",
+        "snare4": "/Snare 4.wav",
       },
       {
         onload: () => {

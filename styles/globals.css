@@ -140,13 +140,13 @@ select.chord-select-dropdown {
   justify-content: center;
 }
 .measure-upper-container {
-  width: 300px;
+  width: 400px;
   display: flex;
   align-items: end;
   height: 150px;
 }
 .measure-lower-container {
-  width: 300px;
+  width: 400px;
   display: flex;
   align-items: start;
   height: 150px;
@@ -181,7 +181,7 @@ select.chord-select-dropdown {
   border-top: 2px solid black;
 }
 .instrument-block {
-  width: 140px;
+  width: 130px;
   height: 35px;
   max-height: 35px;
   display: flex;

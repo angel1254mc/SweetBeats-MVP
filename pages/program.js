@@ -45,7 +45,9 @@ export default function Home() {
               }}>Start</button>
             </div>
             <div className="instruments-container">
-              <InstrumentContainer name="drums" color="#455192" instrument_ident="kick"/>
+              <InstrumentContainer name="kick" color="#455192" instrument_ident="kick"/>
+              <InstrumentContainer name="snare" color="#455192" instrument_ident="snare"/>
+              <InstrumentContainer name="cymbal" color="#455192" instrument_ident="cymbal"/>
               <InstrumentContainer name="bass" color="#779F68" instrument_ident="bass"/>
               <InstrumentContainer name="melody" color="#B95264" instrument_ident="melody"/>
               <InstrumentContainer name="auxiliary" color="#D2C761" instrument_ident="auxiliary"/>
