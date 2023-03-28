@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import Image from "next/image";
 
-const Home2 = () => {
+export default function Home2() {
   return (
     <div class="home-page"> 
 <Image src={'/logo.png'}
@@ -20,4 +20,3 @@ A project by Angel Lopez Pol, Jacob Mass and Alex Harvey</h1>
     
   )
 }
-export default Home2
