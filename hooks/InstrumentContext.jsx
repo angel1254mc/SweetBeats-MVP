@@ -13,7 +13,7 @@ const InstrumentsContextProvider = ({children}) => {
 
     const loop = useRef();
     const samples = useRef();
-    const instrumentKeys = ["drums", "bass", "melody", "auxiliary"];
+    const instrumentKeys = ["kick","bass", "melody", "auxiliary"];
 
     // action.instrument = string identifier for the instrument ("drums", "melody", etc.)
     // action.instrumentId = number identifier for which of the 5 different tracks are to be added
@@ -43,33 +43,29 @@ const InstrumentsContextProvider = ({children}) => {
         return stateCopy;
     }
     const [instruments, setInstruments] = useReducer(reducer, {
-            drums: {
+            kick: {
                 1: ["OFF", "OFF"],
                 2: ["OFF", "OFF"],
                 3: ["OFF", "OFF"],
                 4: ["OFF", "OFF"],
-                5: ["OFF", "OFF"],
             },
             bass: {
                 1: ["OFF", "OFF"],
                 2: ["OFF", "OFF"],
                 3: ["OFF", "OFF"],
                 4: ["OFF", "OFF"],
-                5: ["OFF", "OFF"],
             },
             melody: {
                 1: ["OFF", "OFF"],
                 2: ["OFF", "OFF"],
                 3: ["OFF", "OFF"],
                 4: ["OFF", "OFF"],
-                5: ["OFF", "OFF"],
             },
             auxiliary: {
                 1: ["OFF", "OFF"],
                 2: ["OFF", "OFF"],
                 3: ["OFF", "OFF"],
                 4: ["OFF", "OFF"],
-                5: ["OFF", "OFF"],
             },
     });
   const start = () => {
@@ -82,12 +78,17 @@ const InstrumentsContextProvider = ({children}) => {
   }
   useEffect(() => {
     // Loads our stuff at the start of the program - namely our mp3 files for melodies, auxiliaries, bass, etc.
-    Transport.bpm.value = 85;
+    Transport.bpm.value = 120;
     samples.current = new Players(
       {
         "melody1": "/Chord1_resonance.mp3",
         "melody2": "/Chord2_resonance.mp3",
         "auxiliary1": "/Lead1_resonance.mp3",
+        "kick1": "/Kick 1.wav",
+        "kick2": "/Kick 2.wav",
+        "kick3": "/Kick 3.wav",
+        "kick4": "/Kick 4.wav",
+        "snare1": "/Snare 1.wav"
       },
       {
         onload: () => {
@@ -112,7 +113,7 @@ const InstrumentsContextProvider = ({children}) => {
         if (beat == 0) {
           
           instrumentKeys.forEach((key) => {
-            for (let i = 1; i < 6; i++) {
+            for (let i = 1; i < 5; i++) {
               let instrumentState = instruments[key][i][0];
               if (instrumentState != "OFF") {
                 samples.current.player(`${key}${i}`).start(time);
@@ -120,9 +121,9 @@ const InstrumentsContextProvider = ({children}) => {
             }
           })
         }
-        if (beat == 8) {
+        if (beat == 4) {
           instrumentKeys.forEach((key) => {
-            for (let i = 1; i < 6; i++) {
+            for (let i = 1; i < 5; i++) {
               let instrumentState = instruments[key][i][1];
               if (instrumentState != "OFF") {
                 samples.current.player(`${key}${i}`).start(time);
@@ -131,7 +132,7 @@ const InstrumentsContextProvider = ({children}) => {
           })
         }
       },
-      [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+      [0, 1, 2, 3, 4, 5, 6, 7],
       "4n"
     ).start(0);
   },[isPlaying]);

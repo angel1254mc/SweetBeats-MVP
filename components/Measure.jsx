@@ -12,8 +12,8 @@ const Measure = ({id}) => {
             <div className="measure-vert"/>
             <div className="measure-upper">
                 <div className="instrument-stack upper">
-                    {Object.keys(instruments["drums"]).map((instrument_number, index) => {
-                        return <InstrumentBox key={"drums"+ index} name="Drums" instrument={"drums"} number={instrument_number} activity={instruments["drums"][instrument_number][id]}/>
+                    {Object.keys(instruments["kick"]).map((instrument_number, index) => {
+                        return <InstrumentBox key={"drums"+ index} name="Drums" instrument={"kick"} number={instrument_number} activity={instruments["kick"][instrument_number][id]}/>
                     })}
                 </div>
                 <div className="instrument-stack upper">

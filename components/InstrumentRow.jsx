@@ -13,7 +13,7 @@ const InstrumentRow = ({instrument, measureId }) => {
     >
       {
         // Top ten worst practices I've engaged in for sure
-        [1, 2, 3, 4, 5].map((instrument_number) => {
+        [1, 2, 3, 4].map((instrument_number) => {
           if (instruments[instrument][instrument_number][measureId] != "ON") {
             return <InstrumentImage key={instrument_number} empty={true}/>
           } else return <InstrumentImage key={instrument_number} instrument={instrument} number={instrument_number} measure={measureId} />;

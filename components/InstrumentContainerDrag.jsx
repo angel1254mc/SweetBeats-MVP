@@ -14,6 +14,13 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
     3: "#779F68",
     4: "#B95264",
     5: "#455192",
+    6: "#f003fc",
+    7: "#03e7fc",
+    8: "#35fc03",
+    9: "#9d03fc",
+    10: "#fc9403",
+    11: "#038cfc",
+    12: "#fc5a03",
   };
 
   // This function disables the drop animation
