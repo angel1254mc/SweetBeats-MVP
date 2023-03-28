@@ -104,6 +104,10 @@ const InstrumentsContextProvider = ({children}) => {
         "snare2": "/Snare 2.wav",
         "snare3": "/Snare 3.wav",
         "snare4": "/Snare 4.wav",
+        "cymbal1": "/Cymbal 1.wav",
+        "cymbal2": "/Cymbal 2.wav",
+        "cymbal3": "/Cymbal 3.wav",
+        "cymbal4": "/Cymbal 4.wav",
       },
       {
         onload: () => {
