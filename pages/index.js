@@ -13,7 +13,7 @@ const index = () => {
 
 A project by Angel Lopez Pol, Jacob Mass and Alex Harvey</h1>
 <br></br>
-<h1>   <Link href="/program"> Get started</Link></h1>
+<h1>   <Link href="/disclaimer"> Get started</Link></h1>
 
               
     </div>
