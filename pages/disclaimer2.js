@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-const disclaimer = () => {
+const disclaimer2 = () => {
   return (
     <div style={{
         width: "100%",
@@ -23,10 +23,11 @@ const disclaimer = () => {
             into each other. You can also hover over an instrumentent track to hear
             a preview of how it will sound in the mix. Click start to begin playing the loop.
         </div>
-        <Link href="/program">Go to SweetBeats</Link>
+        
+        <Link href="/program2">Go to SweetBeats</Link>
 
     </div>
   )
 }
 
-export default disclaimer
+export default disclaimer2
