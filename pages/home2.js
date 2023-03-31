@@ -15,7 +15,7 @@ A project by Angel Lopez Pol, Jacob Mass and Alex Harvey</h1>
 <br></br>
 <h1>   <Link href="/disclaimer2"> Get started</Link></h1>
 
-              
+<p id="myText"></p>
     </div>
     
   )
