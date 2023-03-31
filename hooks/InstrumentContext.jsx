@@ -188,13 +188,7 @@ const InstrumentsContextProvider = ({children}) => {
   }, []);
 
   useEffect(() => {
-    let myTextElement = document.getElementById("myText");
-    myTextElement.innerHTML = "";
-myTextElement.style.fontSize = "48px";
-myTextElement.style.position = "fixed";
-myTextElement.style.top = "22%";
-myTextElement.style.right = "auto";
-myTextElement.style.left = "25%";
+    
     // Get rid of any leftover loop from previous isPlaying
     if (loop.current) {
       loop.current.dispose();
@@ -221,6 +215,7 @@ myTextElement.style.left = "25%";
               }
             }
           }
+          let myTextElement = document.getElementById("myText");
           myTextElement.innerHTML = "->";
 myTextElement.style.fontSize = "48px";
 myTextElement.style.position = "fixed";
@@ -244,6 +239,7 @@ myTextElement.style.left = "25%";
               }
             }
           }) 
+          let myTextElement = document.getElementById("myText");
           myTextElement.innerHTML = "<-";
 myTextElement.style.fontSize = "48px";
 myTextElement.style.position = "fixed";
