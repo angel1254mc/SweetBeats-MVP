@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useReducer, useRef, useState } from 'react'
+import React, { createContext, useCallback, useEffect, useReducer, useRef, useState } from 'react'
 import { Players, Sequence } from 'tone';
 import { Transport, start as toneStart } from 'tone';
 import WebAudioScheduler from 'web-audio-scheduler/lib/WebAudioScheduler'
@@ -10,6 +10,12 @@ export const InstrumentsContext = createContext(null);
 const InstrumentsContextProvider = ({children}) => {
     const [loaded, setLoaded] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [measureChords, setMeasureChords] = useReducer((state, newState) => {
+      let stateCopy =  {...state};
+      stateCopy["chordKey"][0] = newState[0];
+      stateCopy["chordKey"][1] = newState[1];
+      return stateCopy;
+    },{"chordKey": {0:"I", 1:"IV"}});
 
     const loop = useRef();
     const samples = useRef();
@@ -93,8 +99,6 @@ const InstrumentsContextProvider = ({children}) => {
     Transport.bpm.value = 120;
     samples.current = new Players(
       {
-        
-        "auxiliary1": "/Lead1_resonance.mp3",
         "kick1": "/Kick 1.wav",
         "kick2": "/Kick 2.wav",
         "kick3": "/Kick 3.wav",
@@ -107,9 +111,71 @@ const InstrumentsContextProvider = ({children}) => {
         "cymbal2": "/Cymbal 2.wav",
         "cymbal3": "/Cymbal 3.wav",
         "cymbal4": "/Cymbal 4.wav",
-        "melody2" : "/Melody 1.wav",
-        "auxiliary3": "/Aux 1.wav",
-        "bass4": "/Bass 1.wav"
+
+        "melody1I": "/Lead 1 I.wav",
+        "melody2I": "/Lead 2 I.wav",
+        "melody3I": "/Lead 3 I.wav",
+        "melody4I": "/Lead 4 I.wav",
+        "auxiliary1I": "/Aux 1 I.wav",
+        "auxiliary2I": "/Aux 2 I.wav",
+        "auxiliary3I": "/Aux 3 I.wav",
+        "auxiliary4I": "/Aux 4 I.wav",
+        "bass1I": "/Bass 1 I.wav",
+        "bass2I": "/Bass 2 I.wav",
+        "bass3I": "/Bass 3 I.wav",
+        "bass4I": "/Bass 4 I.wav",
+
+        "melody1II": "/Lead 1 bII.wav",
+        "melody2II": "/Lead 2 bII.wav",
+        "melody3II": "/Lead 3 bII.wav",
+        "melody4II": "/Lead 4 bII.wav",
+        "auxiliary1II": "/Aux 1 bII.wav",
+        "auxiliary2II": "/Aux 2 bII.wav",
+        "auxiliary3II": "/Aux 3 bII.wav",
+        "auxiliary4II": "/Aux 4 bII.wav",
+        "bass1II": "/Bass 1 bII.wav",
+        "bass2II": "/Bass 2 bII.wav",
+        "bass3II": "/Bass 3 bII.wav",
+        "bass4II": "/Bass 4 bII.wav",
+
+        "melody1III": "/Lead 1 bIII.wav",
+        "melody2III": "/Lead 2 bIII.wav",
+        "melody3III": "/Lead 3 bIII.wav",
+        "melody4III": "/Lead 4 bIII.wav",
+        "auxiliary1III": "/Aux 1 bIII.wav",
+        "auxiliary2III": "/Aux 2 bIII.wav",
+        "auxiliary3III": "/Aux 3 bIII.wav",
+        "auxiliary4III": "/Aux 4 bIII.wav",
+        "bass1III": "/Bass 1 bIII.wav",
+        "bass2III": "/Bass 2 bIII.wav",
+        "bass3III": "/Bass 3 bIII.wav",
+        "bass4III": "/Bass 4 bIII.wav",
+
+        "melody1IV": "/Lead 1 IV.wav",
+        "melody2IV": "/Lead 2 IV.wav",
+        "melody3IV": "/Lead 3 IV.wav",
+        "melody4IV": "/Lead 4 IV.wav",
+        "auxiliary1IV": "/Aux 1 IV.wav",
+        "auxiliary2IV": "/Aux 2 IV.wav",
+        "auxiliary3IV": "/Aux 3 IV.wav",
+        "auxiliary4IV": "/Aux 4 IV.wav",
+        "bass1IV": "/Bass 1 IV.wav",
+        "bass2IV": "/Bass 2 IV.wav",
+        "bass3IV": "/Bass 3 IV.wav",
+        "bass4IV": "/Bass 4 IV.wav",
+
+        "melody1V": "/Lead 1 V.wav",
+        "melody2V": "/Lead 2 V.wav",
+        "melody3V": "/Lead 3 V.wav",
+        "melody4V": "/Lead 4 V.wav",
+        "auxiliary1V": "/Aux 1 V.wav",
+        "auxiliary2V": "/Aux 2 V.wav",
+        "auxiliary3V": "/Aux 3 V.wav",
+        "auxiliary4V": "/Aux 4 V.wav",
+        "bass1V": "/Bass 1 V.wav",
+        "bass2V": "/Bass 2 V.wav",
+        "bass3V": "/Bass 3 V.wav",
+        "bass4V": "/Bass 4 V.wav",
       },
       {
         onload: () => {
@@ -132,22 +198,35 @@ const InstrumentsContextProvider = ({children}) => {
       (time, beat) => {
 
         if (beat == 0) {
-          
-          instrumentKeys.forEach((key) => {
+          for (let n = 0; n < instrumentKeys.length; n++) {
+            const key = instrumentKeys[n];
+            console.log(instrumentKeys.length);
             for (let i = 1; i < 5; i++) {
               let instrumentState = instruments[key][i][0];
               if (instrumentState != "OFF") {
-                samples.current.player(`${key}${i}`).start(time);
+                if (["bass", "melody", "auxiliary"].indexOf(key) != -1) {
+                  let chord = measureChords["chordKey"][0];
+                  samples.current.player(`${key}${i}${chord}`).start(time);
+                }
+                else
+                  samples.current.player(`${key}${i}`).start(time);
               }
             }
-          })
+          }
         }
         if (beat == 4) {
+          console.log(measureChords[1])
           instrumentKeys.forEach((key) => {
             for (let i = 1; i < 5; i++) {
               let instrumentState = instruments[key][i][1];
               if (instrumentState != "OFF") {
-                samples.current.player(`${key}${i}`).start(time);
+                if (["bass", "melody", "auxiliary"].indexOf(key) != -1) {
+                  let chord = measureChords["chordKey"][1];
+                  console.log(chord);
+                  samples.current.player(`${key}${i}${chord}`).start(time);
+                }
+                else
+                  samples.current.player(`${key}${i}`).start(time);
               }
             }
           })
@@ -161,7 +240,7 @@ const InstrumentsContextProvider = ({children}) => {
 
 
     return (
-        <InstrumentsContext.Provider value={{instruments, setInstruments, start, stop}}>
+        <InstrumentsContext.Provider value={{instruments, setInstruments, start, stop, measureChords, setMeasureChords}}>
             {children}
         </InstrumentsContext.Provider>
     )
