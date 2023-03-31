@@ -7,6 +7,7 @@ import WebAudioScheduler from 'web-audio-scheduler/lib/WebAudioScheduler'
 export const InstrumentsContext = createContext(null);
 
 
+
 const InstrumentsContextProvider = ({children}) => {
     const [loaded, setLoaded] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -16,6 +17,7 @@ const InstrumentsContextProvider = ({children}) => {
       stateCopy["chordKey"][1] = newState[1];
       return stateCopy;
     },{"chordKey": {0:"I", 1:"IV"}});
+
 
     const loop = useRef();
     const samples = useRef();
@@ -186,7 +188,13 @@ const InstrumentsContextProvider = ({children}) => {
   }, []);
 
   useEffect(() => {
-    
+    let myTextElement = document.getElementById("myText");
+    myTextElement.innerHTML = "";
+myTextElement.style.fontSize = "48px";
+myTextElement.style.position = "fixed";
+myTextElement.style.top = "22%";
+myTextElement.style.right = "auto";
+myTextElement.style.left = "25%";
     // Get rid of any leftover loop from previous isPlaying
     if (loop.current) {
       loop.current.dispose();
@@ -213,6 +221,12 @@ const InstrumentsContextProvider = ({children}) => {
               }
             }
           }
+          myTextElement.innerHTML = "->";
+myTextElement.style.fontSize = "48px";
+myTextElement.style.position = "fixed";
+myTextElement.style.top = "20%";
+myTextElement.style.right = "auto";
+myTextElement.style.left = "25%";
         }
         if (beat == 4) {
           console.log(measureChords[1])
@@ -229,8 +243,15 @@ const InstrumentsContextProvider = ({children}) => {
                   samples.current.player(`${key}${i}`).start(time);
               }
             }
-          })
+          }) 
+          myTextElement.innerHTML = "<-";
+myTextElement.style.fontSize = "48px";
+myTextElement.style.position = "fixed";
+myTextElement.style.top = "20%";
+myTextElement.style.left = "auto";
+myTextElement.style.right = "25%";
         }
+        
       },
       [0, 1, 2, 3, 4, 5, 6, 7],
       "4n"

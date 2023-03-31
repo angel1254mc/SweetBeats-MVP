@@ -57,6 +57,11 @@ export default function Program2() {
         <main>
         <DragDropContext onDragEnd={onDragEnd}>
           <div className="main_app_container">
+
+
+
+          <p id="myText"></p>
+
             <MeasuresContainer2/>
             <div className="instruments">
               <div className="instrument-types-label">

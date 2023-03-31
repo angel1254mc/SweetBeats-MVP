@@ -31,8 +31,14 @@ export default function Home() {
             }}>Click Here to Initialize Audio Context!</button>
             </div>
           </div> : <></>}
+
+          
+<p id="myText"></p>
+
           <MeasuresContainer/>
           <div className="instruments">
+
+            
             <div className="instrument-types-label">
               Instrument Types
               <button onClick={() => {
@@ -52,6 +58,7 @@ export default function Home() {
               <InstrumentContainer name="melody" color="#B95264" instrument_ident="melody"/>
               <InstrumentContainer name="auxiliary" color="#D2C761" instrument_ident="auxiliary"/>
             </div>
+            
           </div>
         </div>
       </main>
