@@ -188,7 +188,16 @@ const InstrumentsContextProvider = ({children}) => {
   }, []);
 
   useEffect(() => {
-    
+    let myTextElement;
+    if (window.location.href.includes("program")) {
+    myTextElement = document.getElementById("myText");
+    myTextElement.innerHTML = "";
+myTextElement.style.fontSize = "48px";
+myTextElement.style.position = "fixed";
+myTextElement.style.top = "22%";
+myTextElement.style.right = "auto";
+myTextElement.style.left = "25%";
+  }
     // Get rid of any leftover loop from previous isPlaying
     if (loop.current) {
       loop.current.dispose();
@@ -215,13 +224,15 @@ const InstrumentsContextProvider = ({children}) => {
               }
             }
           }
-          let myTextElement = document.getElementById("myText");
+          if (window.location.href.includes("program")) {
+            myTextElement = document.getElementById("myText");
           myTextElement.innerHTML = "->";
 myTextElement.style.fontSize = "48px";
 myTextElement.style.position = "fixed";
 myTextElement.style.top = "20%";
 myTextElement.style.right = "auto";
 myTextElement.style.left = "25%";
+        }
         }
         if (beat == 4) {
           console.log(measureChords[1])
@@ -239,13 +250,14 @@ myTextElement.style.left = "25%";
               }
             }
           }) 
-          let myTextElement = document.getElementById("myText");
+          if (window.location.href.includes("program")) {
           myTextElement.innerHTML = "<-";
 myTextElement.style.fontSize = "48px";
 myTextElement.style.position = "fixed";
 myTextElement.style.top = "20%";
 myTextElement.style.left = "auto";
 myTextElement.style.right = "25%";
+        }
         }
         
       },
