@@ -133,6 +133,7 @@ select.chord-select-dropdown {
 }
 
 .measures-container {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -273,4 +274,31 @@ select.chord-select-dropdown {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+#myText2 {
+  left: 0px;
+  position: absolute;
+  border: 1px solid black;
+  height: 300px;
+  width: 1px;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+#myText2.DND {
+  height: 450px;
+}
+.measure-outer {
+  position: relative;
+  overflow-x: visible;
+}
+
+@keyframes cruiseRight {
+  from {
+    transform: translateX(0px)
+  }
+  to {
+    transform: translateX(800px);
+  }
 }

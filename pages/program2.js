@@ -73,7 +73,7 @@ export default function Program2() {
                     stop();
                   }
                   setTogglePlayer(!togglePlayer);
-                }}>Start</button>
+                }}>{togglePlayer ? "Play" : "Pause"}</button>
               </div>
               <div className="instruments-container">
                 <InstrumentContainerDrag name="kick" color="#455192" instrument_ident="kick"/>

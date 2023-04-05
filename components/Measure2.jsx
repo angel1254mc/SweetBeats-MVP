@@ -5,7 +5,7 @@ import styles from "../styles/Measure2.module.css";
 import InstrumentRow from "./InstrumentRow";
 
 const Measure2 = ({id}) => {
-  const { instruments } = useContext(InstrumentsContext);
+  const { instruments, isPlaying } = useContext(InstrumentsContext);
   /**
    * Measure 2 is gonna be similar to measure1, in that active elements are going to be dictated by the instruments
    * context, but unlike the first measure component, its going to be dnd compatible
@@ -26,6 +26,9 @@ const Measure2 = ({id}) => {
                   ref={droppableProvided.innerRef}
                   {...droppableProvided.droppableProps}
                   className={styles.measure_col}>
+                    {id == 0 ? <div className="DND" id="myText2" style = {{
+                        animationName: isPlaying ? 'cruiseRight' : ''
+                    }} /> : null}
                     {instrumentKeys.map((key) => {
                       return (
                         <InstrumentRow

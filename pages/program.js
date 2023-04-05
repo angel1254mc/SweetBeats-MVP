@@ -33,7 +33,7 @@ export default function Home() {
           </div> : <></>}
 
           
-<p id="myText"></p>
+          <p id="myText"></p>
 
           <MeasuresContainer/>
           <div className="instruments">
@@ -48,7 +48,7 @@ export default function Home() {
                   stop();
                 }
                 setTogglePlayer(!togglePlayer);
-              }}>Start</button>
+              }}>{togglePlayer ? "Play" : "Pause"}</button>
             </div>
             <div className="instruments-container">
               <InstrumentContainer name="kick" color="#455192" instrument_ident="kick"/>

@@ -4,10 +4,13 @@ import InstrumentBox from './InstrumentBox';
 
 const Measure = ({id}) => {
 
-    const {instruments, setInstruments} = useContext(InstrumentsContext);
-
+    const {instruments, setInstruments, isPlaying} = useContext(InstrumentsContext);
+    console.log("The thing is playing: " + isPlaying);
   return (
     <div className="measure-outer">
+        {id == 0 ? <div id="myText2" style = {{
+            animationName: isPlaying ? 'cruiseRight' : ''
+        }} /> : null}
         <div className="measure-upper-container">
             <div className="measure-vert"/>
             <div className="measure-upper">

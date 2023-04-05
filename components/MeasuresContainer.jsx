@@ -42,6 +42,7 @@ const MeasuresContainer = () => {
         </select>
         </div>
         <div className="measures-container">
+            
             <Measure id={0}/>
             <Measure id={1}/>
         </div>
