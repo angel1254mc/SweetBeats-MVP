@@ -257,14 +257,6 @@ const InstrumentsContextProvider = ({ children }) => {
               }
             }
           }
-          if (window.location.href.includes("program")) {
-            myTextElement = document.getElementById("myText");
-          myTextElement.innerHTML = "->";
-myTextElement.style.fontSize = "48px";
-myTextElement.style.position = "fixed";
-myTextElement.style.top = "20%";
-myTextElement.style.right = "auto";
-myTextElement.style.left = "25%";
         }
         if (beat == 4) {
           console.log(measureChords[1]);
@@ -280,13 +272,6 @@ myTextElement.style.left = "25%";
               }
             }
           }) 
-          let myTextElement = document.getElementById("myText");
-          myTextElement.innerHTML = "<-";
-myTextElement.style.fontSize = "48px";
-myTextElement.style.position = "fixed";
-myTextElement.style.top = "20%";
-myTextElement.style.left = "auto";
-myTextElement.style.right = "25%";
         }
       },
       [0, 1, 2, 3, 4, 5, 6, 7],
