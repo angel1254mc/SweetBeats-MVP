@@ -32,9 +32,6 @@ export default function Home() {
             </div>
           </div> : <></>}
 
-          
-          <p id="myText"></p>
-
           <MeasuresContainer/>
           <div className="instruments">
 
