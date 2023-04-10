@@ -302,3 +302,6 @@ select.chord-select-dropdown {
     transform: translateX(800px);
   }
 }
+.chord-selector {
+  z-index: 20;
+}
