@@ -5,6 +5,12 @@ import Circle from "../public/circle.svg";
 import Pentagon from "../public/pentagon.svg";
 import Square from "../public/square.svg";
 import Triangle from "../public/triangle.svg";
+import Snare from "../public/drum.svg";
+import Cymbal from "../public/cymbal.svg";
+import Kick from "../public/kick.svg";
+import Bass from "../public/bass.svg";
+import Melody from "../public/melody.svg";
+import Auxiliary from "../public/auxiliary.svg";
 const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
   const { instruments, setInstruments } = useContext(InstrumentsContext);
   const upperString = name.charAt(0).toUpperCase() + name.slice(1);
@@ -83,7 +89,7 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
                                   style={getStyle(draggableProvided.draggableProps.style, draggableSnapshot)}
                                   isDragging={draggableSnapshot.isDragging && !draggableSnapshot.isDropAnimating}
                                 >
-                                  <Circle
+                                  <Kick
                                     width={30}
                                     height={30}
                                     fill={colorsMap[key]}
@@ -141,7 +147,7 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
                                   style={getStyle(draggableProvided.draggableProps.style, draggableSnapshot)}
                                   isDragging={draggableSnapshot.isDragging && !draggableSnapshot.isDropAnimating}
                                 >
-                                  <Circle
+                                  <Snare
                                     width={30}
                                     height={30}
                                     fill={colorsMap[key]}
@@ -199,7 +205,7 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
                                   style={getStyle(draggableProvided.draggableProps.style, draggableSnapshot)}
                                   isDragging={draggableSnapshot.isDragging && !draggableSnapshot.isDropAnimating}
                                 >
-                                  <Circle
+                                  <Cymbal
                                     width={30}
                                     height={30}
                                     fill={colorsMap[key]}
@@ -257,7 +263,7 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
                                   style={getStyle(draggableProvided.draggableProps.style, draggableSnapshot)}
                                   isDragging={draggableSnapshot.isDragging && !draggableSnapshot.isDropAnimating}
                                 >
-                                  <Triangle
+                                  <Bass
                                     width={30}
                                     height={30}
                                     fill={colorsMap[key]}
@@ -315,7 +321,7 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
                                 style={getStyle(draggableProvided.draggableProps.style, draggableSnapshot)}
                                 isDragging={draggableSnapshot.isDragging && !draggableSnapshot.isDropAnimating}
                               >
-                                <Square
+                                <Melody
                                   width={30}
                                   height={30}
                                   fill={colorsMap[key]}
@@ -373,7 +379,7 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
                                   style={getStyle(draggableProvided.draggableProps.style, draggableSnapshot)}
                                   isDragging={draggableSnapshot.isDragging && !draggableSnapshot.isDropAnimating}
                                 >
-                                  <Pentagon
+                                  <Auxiliary
                                     width={30}
                                     height={30}
                                     fill={colorsMap[key]}
