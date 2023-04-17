@@ -16,10 +16,15 @@ import { Draggable } from "react-beautiful-dnd";
 const InstrumentImage = ({ instrument, number, empty, measure }) => {
   const { setInstruments } = useContext(InstrumentsContext);
   const colorsMap = {
-    1: "#D2C761",
+    /*1: "#D2C761",
     2: "#79606C",
     3: "#779F68",
     4: "#B95264",
+    5: "#455192",*/
+    1: "#9d03fc",
+    2: "#c21b1b",
+    3: "#1f870c",
+    4: "#1b49bf",
     5: "#455192",
   };
   function getStyle(style, snapshot) {

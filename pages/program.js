@@ -48,12 +48,12 @@ export default function Home() {
               }}>{togglePlayer ? "Play" : "Pause"}</button>
             </div>
             <div className="instruments-container">
-              <InstrumentContainer name="kick" color="#455192" instrument_ident="kick"/>
-              <InstrumentContainer name="snare" color="#455192" instrument_ident="snare"/>
-              <InstrumentContainer name="cymbal" color="#455192" instrument_ident="cymbal"/>
-              <InstrumentContainer name="bass" color="#779F68" instrument_ident="bass"/>
-              <InstrumentContainer name="melody" color="#B95264" instrument_ident="melody"/>
-              <InstrumentContainer name="auxiliary" color="#D2C761" instrument_ident="auxiliary"/>
+              <InstrumentContainer name="kick" color="#1b49bf" instrument_ident="kick"/>
+              <InstrumentContainer name="snare" color="#1b49bf" instrument_ident="snare"/>
+              <InstrumentContainer name="cymbal" color="#1b49bf" instrument_ident="cymbal"/>
+              <InstrumentContainer name="bass" color="#1f870c" instrument_ident="bass"/>
+              <InstrumentContainer name="melody" color="#c21b1b" instrument_ident="melody"/>
+              <InstrumentContainer name="auxiliary" color="#9d03fc" instrument_ident="auxiliary"/>
             </div>
             
           </div>

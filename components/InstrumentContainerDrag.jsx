@@ -15,6 +15,7 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
   const { instruments, setInstruments } = useContext(InstrumentsContext);
   const upperString = name.charAt(0).toUpperCase() + name.slice(1);
   const colorsMap = {
+    /*
     1: "#D2C761",
     2: "#79606C",
     3: "#779F68",
@@ -27,6 +28,12 @@ const InstrumentContainerDrag = ({ name, color, instrument_ident }) => {
     10: "#fc9403",
     11: "#038cfc",
     12: "#fc5a03",
+    */
+    1: "#9d03fc",
+    2: "#c21b1b",
+    3: "#1f870c",
+    4: "#1b49bf",
+    5: "#455192",
   };
 
   // This function disables the drop animation
