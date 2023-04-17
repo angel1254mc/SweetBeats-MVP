@@ -3,32 +3,32 @@
 
 # Task times should be in seconds or minutes accross all tasks
 
-designATask1Time <- c(36, 38)
-designBTask1Time <- c(57, 26)
+designATask1Time <- c(30, 15, 36, 38, 14, 19)
+designBTask1Time <- c(20, 14, 48, 57, 26, 200)
 
-designATask2Time <- c(24, 42)
-designBTask2Time <- c(92, 44)
+designATask2Time <- c(33, 55, 24, 42, 36, 37)
+designBTask2Time <- c(83, 85, 20, 92, 44, 200)
 
-designATask3Time <- c(34, 17)
-designBTask3Time <- c(29, 25)
+designATask3Time <- c(12, 25, 34, 17, 18, 16)
+designBTask3Time <- c(15, 8, 10, 29, 25, 200)
 
-designATaskOverallTime <- c(46, 32)
-designBTaskOverallTime <- c(93, 54)
+designATaskOverallTime <- c(93, 95, 46, 32, 46, 30)
+designBTaskOverallTime <- c(83, 117, 86, 93, 54, 200)
 
-designATask1Errors <- c(2, 1)
-designBTask1Errors <- c(1, 1)
+designATask1Errors <- c(1, 0, 2, 1, 0, 1)
+designBTask1Errors <- c(1, 0, 2, 1, 1, 0)
 
-designATask2Errors <- c(1, 0)
-designBTask2Errors <- c(2, 0)
+designATask2Errors <- c(3, 1, 1, 0, 0, 0)
+designBTask2Errors <- c(4, 2, 0, 2, 0, 0)
 
-designATask3Errors <- c(0, 0)
-designBTask3Errors <- c(0, 0)
+designATask3Errors <- c(0, 0, 0, 0, 0, 0)
+designBTask3Errors <- c(0, 0, 0, 0, 0, 0)
 
-designATaskOverallErrors <- c(0, 0)
-designBTaskOverallErrors <- c(0, 0)
+designATaskOverallErrors <- c(0, 0, 0, 0, 0, 0)
+designBTaskOverallErrors <- c(0, 0, 1, 0, 0, 0)
 
-designAUsabilityTestResults <- c(77.5, 72.5)
-designBUsabilityTestResults <- c(85, 70)
+designAUsabilityTestResults <- c(95, 87.5, 77.5, 72.5, 90, 85)
+designBUsabilityTestResults <- c(72.5, 85, 92.5, 85, 70, 70)
 # These might be a useful set of data points in order to compare if there
 # was a significant change in the usability of the system
 # after implementing our changes.
@@ -37,7 +37,7 @@ designBUsabilityTestResults <- c(85, 70)
 # Right now this array has the scores for the 4 usability tests I conducted in user test 1
 # It's missing 2 more from Jacob's tests in order to compare 6 old datapoint / 6 new dataponts
 
-pastUsabilityScaleResults <- c(32.5, 62.5, 42.5, 55.5)
+pastUsabilityScaleResults <- c(32.5, 62.5, 42.5, 55.5, 62.5, 70)
 
 # Perform t-test for task 1 time
 t_test_task_1_time <- t.test(designATask1Time, designBTask1Time)
