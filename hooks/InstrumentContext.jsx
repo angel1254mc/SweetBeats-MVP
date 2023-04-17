@@ -6,8 +6,8 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Players, Sequence } from "tone";
-import { Transport, start as toneStart } from "tone";
+import { Players, Sequence, getDestination } from "tone";
+import { Transport, start as toneStart, Volume } from "tone";
 import WebAudioScheduler from "web-audio-scheduler/lib/WebAudioScheduler";
 
 export const InstrumentsContext = createContext(null);
@@ -25,6 +25,7 @@ const InstrumentsContextProvider = ({ children }) => {
     { chordKey: { 0: "I", 1: "IV" } }
   );
 
+  const vol = useRef();
   const loop = useRef();
   const samples = useRef();
   const instrumentKeys = [
@@ -144,6 +145,7 @@ const InstrumentsContextProvider = ({ children }) => {
   };
   useEffect(() => {
     // Loads our stuff at the start of the program - namely our mp3 files for melodies, auxiliaries, bass, etc.
+    vol.current = getDestination();
     Transport.bpm.value = 120;
     samples.current = new Players(
       {
@@ -290,7 +292,8 @@ const InstrumentsContextProvider = ({ children }) => {
         measureChords,
         setMeasureChords,
         setIsPlaying,
-        isPlaying
+        isPlaying,
+        vol
       }}
     >
       {children}
