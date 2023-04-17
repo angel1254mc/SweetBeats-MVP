@@ -196,19 +196,19 @@ select.chord-select-dropdown {
 }
 
 .instrument-block.ON.drums  {
-  background-color: #455192;
+  background-color: #1b49bf;
 }
 .instrument-block.ON.kick, .instrument-block.ON.cymbal, .instrument-block.ON.snare {
-  background-color: #455192;
+  background-color: #1b49bf;
 }
 .instrument-block.ON.melody {
-  background-color: #B95264;
+  background-color: #c21b1b;
 }
 .instrument-block.ON.bass {
-  background-color: #779F68;
+  background-color: #1f870c;
 }
 .instrument-block.ON.auxiliary {
-  background-color: #D2C761;
+  background-color: #9d03fc;
 }
 .on {
   background-color: black;
