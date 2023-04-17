@@ -156,32 +156,32 @@ export default function Program2() {
               <div className="instruments-container">
                 <InstrumentContainerDrag
                   name="kick"
-                  color="#455192"
+                  color="#1b49bf"
                   instrument_ident="kick"
                 />
                 <InstrumentContainerDrag
                   name="snare"
-                  color="#455192"
+                  color="#1b49bf"
                   instrument_ident="snare"
                 />
                 <InstrumentContainerDrag
                   name="cymbal"
-                  color="#455192"
+                  color="#1b49bf"
                   instrument_ident="cymbal"
                 />
                 <InstrumentContainerDrag
                   name="bass"
-                  color="#779F68"
+                  color="#1f870c"
                   instrument_ident="bass"
                 />
                 <InstrumentContainerDrag
                   name="melody"
-                  color="#B95264"
+                  color="#c21b1b"
                   instrument_ident="melody"
                 />
                 <InstrumentContainerDrag
                   name="auxiliary"
-                  color="#D2C761"
+                  color="#9d03fc"
                   instrument_ident="auxiliary"
                 />
               </div>
