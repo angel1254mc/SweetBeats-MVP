@@ -4,16 +4,16 @@
 # Task times should be in seconds or minutes accross all tasks
 
 designATask1Time <- c(30, 15, 36, 38, 14, 19)
-designBTask1Time <- c(20, 14, 48, 57, 26, 200)
+designBTask1Time <- c(20, 14, 48, 57, 26, 20)
 
 designATask2Time <- c(33, 55, 24, 42, 36, 37)
-designBTask2Time <- c(83, 85, 20, 92, 44, 200)
+designBTask2Time <- c(83, 85, 20, 92, 44, 20)
 
 designATask3Time <- c(12, 25, 34, 17, 18, 16)
-designBTask3Time <- c(15, 8, 10, 29, 25, 200)
+designBTask3Time <- c(15, 8, 10, 29, 25, 20)
 
 designATaskOverallTime <- c(93, 95, 46, 32, 46, 30)
-designBTaskOverallTime <- c(83, 117, 86, 93, 54, 200)
+designBTaskOverallTime <- c(83, 117, 86, 93, 54, 20)
 
 designATask1Errors <- c(1, 0, 2, 1, 0, 1)
 designBTask1Errors <- c(1, 0, 2, 1, 1, 0)
@@ -63,9 +63,9 @@ t_test_task_3_err <- t.test(designATask3Errors, designBTask3Errors)
 # Perform t-test for overall task errors
 t_test_task_4_err <- t.test(designATaskOverallErrors, designBTaskOverallErrors)
 
-boxplot(designATask1Time,designBTask1Time, xlab="SweetBeats Design", ylab="Error Count", names=c("Design A", "Design B"))
-boxplot(designATask2Time,designBTask2Time, xlab="SweetBeats Design", ylab="Error Count", names=c("Design A", "Design B"))
-boxplot(designATask3Time,designBTask3Time, xlab="SweetBeats Design", ylab="Error Count", names=c("Design A", "Design B"))
+boxplot(designATask1Time,designBTask1Time, xlab="SweetBeats Design", ylab="Completion Time (seconds)", names=c("Design A", "Design B"))
+boxplot(designATask2Time,designBTask2Time, xlab="SweetBeats Design", ylab="Completion Time (seconds)", names=c("Design A", "Design B"))
+boxplot(designATask3Time,designBTask3Time, xlab="SweetBeats Design", ylab="Completion Time (seconds)", names=c("Design A", "Design B"))
 
 errCountA <- sum(c(designATask1Errors, designATask2Errors, designATask3Errors))
 errCountB <- sum(c(designBTask1Errors, designBTask2Errors, designBTask3Errors))
