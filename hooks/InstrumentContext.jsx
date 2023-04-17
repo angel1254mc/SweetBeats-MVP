@@ -42,6 +42,16 @@ const InstrumentsContextProvider = ({ children }) => {
 
   const reducer = (state, action) => {
     let stateCopy = { ...state };
+    if (action.type == "off") {
+        stateCopy[action.instrument][action.instrumentId][action.measureIndex] =
+          "OFF";
+        return stateCopy;
+    }
+    if (action.type == "on") {
+      stateCopy[action.instrument][action.instrumentId][action.measureIndex] =
+      "ON";
+      return stateCopy;
+    }
     if (action.type == "toggle") {
       if (
         stateCopy[action.instrument][action.instrumentId][
