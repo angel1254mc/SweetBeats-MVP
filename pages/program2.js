@@ -5,6 +5,8 @@ import InstrumentContainer from "../components/InstrumentContainer";
 import InstrumentContainerDrag from "../components/InstrumentContainerDrag";
 import MeasuresContainer2 from "../components/MeasuresContainer2";
 import { InstrumentsContext } from "../hooks/InstrumentContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPause, faPlay, faVolumeHigh, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 // Yea
 /**
  * Program 2 is the same thing as the first program file, except that this one deals
@@ -17,10 +19,28 @@ import { InstrumentsContext } from "../hooks/InstrumentContext";
  */
 export default function Program2() {
   const [togglePlayer, setTogglePlayer] = useState(true);
-  const { start, stop, setInstruments } = useContext(InstrumentsContext);
+  const { start, stop, setInstruments, vol } = useContext(InstrumentsContext);
+  const [volume, setVolume] = useState(1)
   const onDragHoverOver = ({}) => {
     // Function that reads if the current draggable is hovering over a measure, previews it when it enters, removes the preview once it leaves.
   };
+
+  const handleToggle = () => {
+    if (togglePlayer) {
+      start();
+    } else {
+      stop();
+    }
+    setTogglePlayer(!togglePlayer);
+  }
+
+  const handleVolumeChange = (e) => {
+
+    setVolume(e.target.value);
+    vol.current.volume.value = e.target.value;
+    console.log(vol.current.volume)
+  }
+
   const onDragEnd = ({ source, destination, type, draggableId }) => {
     // Handle instruments getting "dropped out" of measure
     if (
@@ -113,19 +133,25 @@ export default function Program2() {
             <MeasuresContainer2 />
             <div className="instruments">
               <div className="instrument-types-label">
-                Instrument Types
+              <div className="controls-container">
                 <button
-                  onClick={() => {
-                    if (togglePlayer) {
-                      start();
-                    } else {
-                      stop();
-                    }
-                    setTogglePlayer(!togglePlayer);
-                  }}
-                >
-                  {togglePlayer ? "Play" : "Pause"}
+                style={{
+                  height: '30px',
+                  width: '30px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius: '100%'
+                }}
+                className="play-button"
+                  onClick={handleToggle}>
+                  {togglePlayer ? <FontAwesomeIcon height={30} icon={faPlay}/> : <FontAwesomeIcon height={30}icon={faPause}/>}
                 </button>
+                <div className="volume-container">
+                  <FontAwesomeIcon height={20} icon={faVolumeMute} /> <input max={4} min={-80} onChange={handleVolumeChange} value={volume} type="range" id="volume-slider"></input> <FontAwesomeIcon height={20} icon={faVolumeHigh}/>
+                </div>
+              </div>
+              <div>Instrument Types</div>
               </div>
               <div className="instruments-container">
                 <InstrumentContainerDrag
