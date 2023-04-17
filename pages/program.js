@@ -1,16 +1,37 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '../styles/Home.module.css'
-import InstrumentContainer from '../components/InstrumentContainer'
-import { useContext, useEffect, useState } from 'react'
-import MeasuresContainer from '../components/MeasuresContainer'
-import {InstrumentsContext, InstrumentsContextProvider} from '../hooks/InstrumentContext'
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "@next/font/google";
+import styles from "../styles/Home.module.css";
+import InstrumentContainer from "../components/InstrumentContainer";
+import { useContext, useEffect, useState } from "react";
+import MeasuresContainer from "../components/MeasuresContainer";
+import {
+  InstrumentsContext,
+  InstrumentsContextProvider,
+} from "../hooks/InstrumentContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPause, faPlay, faVolumeHigh, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   const [togglePlayer, setTogglePlayer] = useState(true);
   const [gesture, setGesture] = useState(false);
-  const  {start, stop} = useContext(InstrumentsContext)
+  const { start, stop, vol } = useContext(InstrumentsContext);
+  const [volume, setVolume] = useState(1);
+  const handleToggle = () => {
+    if (togglePlayer) {
+      start();
+    } else {
+      stop();
+    }
+    setTogglePlayer(!togglePlayer);
+  }
+
+  const handleVolumeChange = (e) => {
+
+    setVolume(e.target.value);
+    vol.current.volume.value = e.target.value;
+    console.log(vol.current.volume)
+  }
   return (
     <>
       <Head>
@@ -21,32 +42,30 @@ export default function Home() {
       </Head>
       <main>
         <div className="main_app_container">
-          {
-            !gesture ? 
-            <div className="initialize-audio-overlay">
-              
-              <div class="intro-text">
-            <button className="initialize-audio-button" onClick={() => {
-              setGesture(true);
-            }}>Click Here to Initialize Audio Context!</button>
-            </div>
-          </div> : <></>}
-
-          <MeasuresContainer/>
+          <MeasuresContainer />
           <div className="instruments">
-
-            
             <div className="instrument-types-label">
-              Instrument Types
-              <button onClick={() => {
-                if (togglePlayer) {
-                  start();
-                } else {
-                  stop();
-                }
-                setTogglePlayer(!togglePlayer);
-              }}>{togglePlayer ? "Play" : "Pause"}</button>
+              <div className="controls-container">
+                <button
+                style={{
+                  height: '30px',
+                  width: '30px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius: '100%'
+                }}
+                className="play-button"
+                  onClick={handleToggle}>
+                  {togglePlayer ? <FontAwesomeIcon height={30} icon={faPlay}/> : <FontAwesomeIcon height={30}icon={faPause}/>}
+                </button>
+                <div className="volume-container">
+                  <FontAwesomeIcon height={20} icon={faVolumeMute} /> <input max={4} min={-80} onChange={handleVolumeChange} value={volume} type="range" id="volume-slider"></input> <FontAwesomeIcon height={20} icon={faVolumeHigh}/>
+                </div>
+              </div>
+              <div>Instrument Types</div>
             </div>
+
             <div className="instruments-container">
               <InstrumentContainer name="kick" color="#1b49bf" instrument_ident="kick"/>
               <InstrumentContainer name="snare" color="#1b49bf" instrument_ident="snare"/>
@@ -54,11 +73,11 @@ export default function Home() {
               <InstrumentContainer name="bass" color="#1f870c" instrument_ident="bass"/>
               <InstrumentContainer name="melody" color="#c21b1b" instrument_ident="melody"/>
               <InstrumentContainer name="auxiliary" color="#9d03fc" instrument_ident="auxiliary"/>
+
             </div>
-            
           </div>
         </div>
       </main>
     </>
-  )
+  );
 }

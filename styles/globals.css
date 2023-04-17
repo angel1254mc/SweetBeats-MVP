@@ -294,6 +294,12 @@ select.chord-select-dropdown {
   overflow-x: visible;
 }
 
+.instrument-types-label {
+  align-items: center;
+  row-gap: 5px;
+  display: flex; 
+  flex-direction: column;
+}
 @keyframes cruiseRight {
   from {
     transform: translateX(0px)
@@ -304,4 +310,24 @@ select.chord-select-dropdown {
 }
 .chord-selector {
   z-index: 20;
+}
+
+.play-button {
+  border: 1px solid white;
+  transition: 0.2s all;
+}
+.play-button:hover {
+  border: 1px solid grey;
+  transform: scale(1.2);
+}
+.controls-container {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+}
+
+.volume-container {
+  display: flex;
+  column-gap: 5px;
+  align-items: center;
 }
