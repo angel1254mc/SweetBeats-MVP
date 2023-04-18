@@ -4,22 +4,22 @@
 # Task times should be in seconds or minutes accross all tasks
 
 designATask1Time <- c(30, 15, 36, 38, 14, 19)
-designBTask1Time <- c(20, 14, 48, 57, 26, 20)
+designBTask1Time <- c(20, 14, 48, 57, 26, 35)
 
 designATask2Time <- c(33, 55, 24, 42, 36, 37)
-designBTask2Time <- c(83, 85, 20, 92, 44, 20)
+designBTask2Time <- c(83, 85, 20, 92, 44, 73)
 
 designATask3Time <- c(12, 25, 34, 17, 18, 16)
-designBTask3Time <- c(15, 8, 10, 29, 25, 20)
+designBTask3Time <- c(15, 8, 10, 29, 25, 24)
 
 designATaskOverallTime <- c(93, 95, 46, 32, 46, 30)
-designBTaskOverallTime <- c(83, 117, 86, 93, 54, 20)
+designBTaskOverallTime <- c(83, 117, 86, 93, 54, 41)
 
 designATask1Errors <- c(1, 0, 2, 1, 0, 1)
-designBTask1Errors <- c(1, 0, 2, 1, 1, 0)
+designBTask1Errors <- c(1, 0, 2, 1, 1, 3)
 
 designATask2Errors <- c(3, 1, 1, 0, 0, 0)
-designBTask2Errors <- c(4, 2, 0, 2, 0, 0)
+designBTask2Errors <- c(4, 2, 0, 2, 0, 2)
 
 designATask3Errors <- c(0, 0, 0, 0, 0, 0)
 designBTask3Errors <- c(0, 0, 0, 0, 0, 0)
@@ -28,13 +28,13 @@ designATaskOverallErrors <- c(0, 0, 0, 0, 0, 0)
 designBTaskOverallErrors <- c(0, 0, 1, 0, 0, 0)
 
 designAExperience <- c(1, 2, 2, 1, 2, 1)
-designBExperience <- c(2, 1, 1, 1, 3, 0)
+designBExperience <- c(2, 1, 1, 1, 3, 2)
 
 designAFun <- c(4, 4, 4, 2, 5, 4)
-designBFun <- c(5, 5, 5, 5, 5, 0)
+designBFun <- c(5, 5, 5, 5, 5, 4)
 
 designAUsefulness <- c(3, 3, 3, 1, 3, 4)
-designBUsefulness <- c(4, 2, 4, 5, 3, 0)
+designBUsefulness <- c(4, 2, 4, 5, 3, 5)
 
 
 designAUsabilityTestResults <- c(95, 87.5, 77.5, 72.5, 90, 85)
