@@ -82,7 +82,8 @@ t_test_fun <- t.test(designAFun, designBFun)
 # Perform t-test for self-reported program usefulness
 t_test_usefulness <- t.test(designAUsefulness, designBUsefulness)
 
-
+# Perform t-test for self-reported program usefulness
+t_test_overall_usability <- t.test(designAUsabilityTestResults, designBUsabilityTestResults)
 
 
 boxplot(designATask1Time,designBTask1Time, col=c(rgb(0.1,0.1,0.7,0.5), rgb(0.1,0.1,0.7,0.5)), xlab="SweetBeats Design",main="Task 1 Completion Times vs. Design", ylab="Completion Time (seconds)", names=c("Design A", "Design B"))
@@ -107,4 +108,9 @@ print(t_test_task_4_err)
 print(t_test_experience)
 print(t_test_fun)
 print(t_test_usefulness)
+print(t_test_overall_usability)
 
+summary(designATask1Errors)
+summary(designATask2Errors)
+summary(designATask3Errors)
+summary(designATaskOverallErrors)
