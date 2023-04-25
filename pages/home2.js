@@ -13,7 +13,7 @@ export default function Home2() {
 
 A project by Angel Lopez Pol, Jacob Mass and Alex Harvey</h1>
 <br></br>
-<h1>   <Link href="/disclaimer2"> Get started</Link></h1>
+<h1>   <Link href="/program2"> Get started</Link></h1>
 
     </div>
     

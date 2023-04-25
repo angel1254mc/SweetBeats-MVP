@@ -12,7 +12,7 @@ const index = () => {
       <br></br>
       <h1>
         {" "}
-        <Link href="/disclaimer"> Get started</Link>
+        <Link href="/program"> Get started</Link>
       </h1>
     </div>
   );
