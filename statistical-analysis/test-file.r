@@ -95,7 +95,39 @@ errCountB <- sum(c(designBTask1Errors, designBTask2Errors, designBTask3Errors))
 
 barplot(cbind(errCountA, errCountB), col=c(rgb(0.1,0.1,0.7,0.5), rgb(0.1,0.1,0.7,0.5)), ylab="Error Count", xlab="Design", names=c("Design A", "Design B"))
 
+library(ggplot2)
 
+# "Least crazy R code"
+
+# create a data frame for the likert scale data
+likert_data <- data.frame(
+  experience = c(designAExperience, designBExperience),
+  fun = c(designAFun, designBFun),
+  usefulness = c(designAUsefulness, designBUsefulness),
+  design = factor(rep(c("A", "B"), each = 6)),
+  question = factor(rep(c("Experience", "Fun", "Usefulness"), each = 2*6))
+)
+
+# calculate the mean score for each participant
+likert_data$mean_score <- rowMeans(likert_data[, c("experience", "fun", "usefulness")])
+
+# calculate means for each design and question
+means <- data.frame(
+  design = c("A", "A", "A", "B", "B", "B"),
+  question = c("Experience", "Fun", "Usefulness"),
+  mean_score = c(
+    mean(designAExperience), mean(designAFun), mean(designAUsefulness),
+    mean(designBExperience), mean(designBFun), mean(designBUsefulness)
+  )
+)
+
+# create the grouped bar chart - this should have means calculated at the dependent variable level
+ggplot(means, aes(x = design, y = mean_score, fill = question)) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  xlab("Design") +
+  ylab("Mean Score") +
+  ggtitle("Likert Scale Results for A/B Test") +
+  theme_bw()
 
 print(t_test_task_1_time)
 print(t_test_task_2_time)
