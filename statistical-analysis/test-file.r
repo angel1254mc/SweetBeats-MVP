@@ -47,7 +47,7 @@ designBUsabilityTestResults <- c(72.5, 85, 92.5, 85, 70, 70)
 # Right now this array has the scores for the 4 usability tests I conducted in user test 1
 # It's missing 2 more from Jacob's tests in order to compare 6 old datapoint / 6 new dataponts
 
-pastUsabilityScaleResults <- c(32.5, 62.5, 42.5, 55.5, 62.5, 70)
+pastUsabilityScaleResults <- c(32.5, 62.5, 42.5, 55.5, x, x, x, 87.5)
 
 # Perform t-test for task 1 time
 t_test_task_1_time <- t.test(designATask1Time, designBTask1Time)
